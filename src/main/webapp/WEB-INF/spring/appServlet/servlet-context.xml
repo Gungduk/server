@@ -46,4 +46,14 @@
 	<beans:bean name="Testdao" class="com.hybrid.gungduk.dao.TestDao" />
 	<beans:bean name="TestService" class="com.hybrid.gungduk.service.TestService" />
 	
+	<beans:bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+    	<beans:property name="basenames">
+			<beans:list>
+				<beans:value>message.error</beans:value>
+			</beans:list>
+		</beans:property>
+		<beans:property name="defaultEncoding" value="UTF-8" />
+	</beans:bean>
+	
+	
 </beans:beans>
