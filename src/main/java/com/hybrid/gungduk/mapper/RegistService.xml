@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="register">
-    <select id="registCheck" parameterType="String" resultType="java.util.String">
+    <select id="registCheck" parameterType="String" resultType="String">
         SELECT 	EMAIL
         FROM 	USER
         WHERE	EMAIL = #{email}
     </select>
     
-    <select id="regist" parameterType="com.hybrid.gungduk.dto" resultType="int">
+    <select id="regist" parameterType="com.hybrid.gungduk.dto.RegistDto" resultType="int">
         INSERT 
         	INTO USER(email, pw, phoneNum)
         VALUES(#{email}, #{pw}, #{phoneNum})
