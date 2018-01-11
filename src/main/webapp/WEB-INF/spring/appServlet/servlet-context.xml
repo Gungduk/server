@@ -43,8 +43,7 @@
 		<beans:constructor-arg index="0" ref="sqlSessionFactory" />
 	</beans:bean>
 	
-	<beans:bean name="Testdao" class="com.hybrid.gungduk.dao.TestDao" />
-	<beans:bean name="TestService" class="com.hybrid.gungduk.service.TestService" />
+
 	<beans:bean name="IdPwSearchDao" class="com.hybrid.gungduk.dao.IdPwSearchDao" />
 	<beans:bean name="IdPwSearchService" class="com.hybrid.gungduk.service.IdPwSearchService" />
 	<beans:bean name="RegistDao" class="com.hybrid.gungduk.dao.RegistDao" />

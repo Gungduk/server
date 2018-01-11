@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hybrid.gungduk.dao.RegistDao;
-import com.hybrid.gungduk.dto.RegistDto;
+import com.hybrid.gungduk.dto.UserDto;
 
 @Controller
 @RequestMapping(value = "/api/v1/regist", method = RequestMethod.POST)
@@ -19,7 +19,7 @@ public class RegistController {
 	RegistDao regDao;
 	
 	@ResponseBody
-	public int regist(@RequestBody RegistDto regDtoReq){
+	public int regist(@RequestBody UserDto regDtoReq){
 
 		String email = regDtoReq.getEmail();
 		

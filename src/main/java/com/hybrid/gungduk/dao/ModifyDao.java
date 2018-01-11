@@ -5,15 +5,16 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class TestDao {
-	
+public class ModifyDao {
+
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public List<String> getName(){
-		List<String> names = sqlSession.selectList("test.getName");
-		System.out.println(names);
+	public List<Object> info(){
+		return sqlSession.selectList("modify.info");
+	}
 	
-		return names;
+	public void updateInfo(){
+		sqlSession.update("modify.updateInfo");
 	}
 }

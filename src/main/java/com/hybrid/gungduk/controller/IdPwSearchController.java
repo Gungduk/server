@@ -10,16 +10,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.hybrid.gungduk.dao.IdPwSearchDao;
 
 @Controller
-@RequestMapping(value = "/api/v1/idPwSearch", method = RequestMethod.POST)
 public class IdPwSearchController {
 
 	@Autowired
 	IdPwSearchDao idPwSearchDao;
 	
+	@RequestMapping(value = "/api/v1/searchId", method = RequestMethod.POST)
 	public @ResponseBody String searchId(@RequestParam String phoneNum){
 		return idPwSearchDao.searchId(phoneNum);
 	}
 	
+	@RequestMapping(value = "/api/v1/searchPw", method = RequestMethod.POST)
 	public @ResponseBody String searchPw(@RequestParam String email){
 		return idPwSearchDao.searchPw(email);
 	}

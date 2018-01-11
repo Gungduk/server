@@ -3,7 +3,7 @@ package com.hybrid.gungduk.dao;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.hybrid.gungduk.dto.RegistDto;
+import com.hybrid.gungduk.dto.UserDto;
 
 public class RegistDao {
 	
@@ -18,7 +18,7 @@ public class RegistDao {
 		else return 1; //가입 가능한 회원 아이디
 	}
 	
-	public int register(RegistDto regDtoReq){
+	public int register(UserDto regDtoReq){
 		return sqlSession.insert("register.regist", regDtoReq);
 	}
 }

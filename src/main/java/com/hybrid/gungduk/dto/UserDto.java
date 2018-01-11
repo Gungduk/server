@@ -1,6 +1,6 @@
 package com.hybrid.gungduk.dto;
 
-public class RegistDto {
+public class UserDto {
 	String email;
 	String pw;
 	String phoneNum;
