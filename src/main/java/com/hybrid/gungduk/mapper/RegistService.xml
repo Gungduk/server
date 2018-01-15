@@ -3,14 +3,14 @@
 
 <mapper namespace="register">
     <select id="registCheck" parameterType="String" resultType="String">
-        SELECT 	EMAIL
-        FROM 	USER
-        WHERE	EMAIL = #{email}
+        SELECT 	email
+        FROM 	user
+        WHERE	email = #{email}
     </select>
     
     <select id="regist" parameterType="com.hybrid.gungduk.dto.UserDto" resultType="int">
         INSERT 
-        	INTO USER(email, pw, phoneNum)
+        	INTO user(email, pw, phoneNum)
         VALUES(#{email}, #{pw}, #{phoneNum})
     </select>
 </mapper>

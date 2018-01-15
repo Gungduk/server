@@ -7,19 +7,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.hybrid.gungduk.dao.RegistDao;
 import com.hybrid.gungduk.dto.UserDto;
 
-@Controller
-@RequestMapping(value = "/api/v1/regist", method = RequestMethod.POST)
+import io.swagger.annotations.Api;
+
+@Api(value="RegistResponse", description="회원가입 API", basePath="/api/v1/regist")
+@RestController
 public class RegistController {
 	
 	@Autowired
 	RegistDao regDao;
 	
-	@ResponseBody
-	public int regist(@RequestBody UserDto regDtoReq){
+	@RequestMapping(value = "/api/v1/regist", method = RequestMethod.POST)
+	public @ResponseBody int regist(@RequestBody UserDto regDtoReq){
 
 		String email = regDtoReq.getEmail();
 		
