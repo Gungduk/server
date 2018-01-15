@@ -55,4 +55,6 @@
 	<beans:bean name="IdPwSearchService" class="com.hybrid.gungduk.service.IdPwSearchService" />
 	<beans:bean name="RegistDao" class="com.hybrid.gungduk.dao.RegistDao" />
 	<beans:bean name="RegistService" class="com.hybrid.gungduk.service.RegistService" />
+	<beans:bean name="LoginDao" class="com.hybrid.gungduk.dao.LoginDao" />
+	<beans:bean name="LoginService" class="com.hybrid.gungduk.service.LoginService" />
 </beans:beans>
