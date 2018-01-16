@@ -43,7 +43,7 @@ public class LoginController {
     }
 	/*
 	 * 나중에 세션 필요한 페이지에서 session.getAttribute("userLogEmail");사용해서 LoginDto객체 전달받음
-	 * if(session.getAttribute("userLogEmail") == null) : 로그인이 안된 상태
+	 * if(session.getAttribute("userLogInfo") == null) : 로그인이 안된 상태
 	 * 매 화면마다 session.getAttribute하기 귀찮으면 @SessionAttributes 세션 연동하기
 	 * */
      
