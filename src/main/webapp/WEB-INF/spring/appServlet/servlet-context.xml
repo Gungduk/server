@@ -43,9 +43,18 @@
 		<beans:constructor-arg index="0" ref="sqlSessionFactory" />
 	</beans:bean>
 	
+	<!-- swagger -->
+	<beans:bean id="swagger2Config" 
+    class="springfox.documentation.swagger2.configuration.Swagger2DocumentationConfiguration"></beans:bean>
+    
+    <default-servlet-handler />
+	<resources location="classpath:/META-INF/resources/" mapping="swagger-ui.html"></resources>
+	<resources location="classpath:/META-INF/resources/webjars/" mapping="/webjars/**"></resources>
 
 	<beans:bean name="IdPwSearchDao" class="com.hybrid.gungduk.dao.IdPwSearchDao" />
 	<beans:bean name="IdPwSearchService" class="com.hybrid.gungduk.service.IdPwSearchService" />
 	<beans:bean name="RegistDao" class="com.hybrid.gungduk.dao.RegistDao" />
 	<beans:bean name="RegistService" class="com.hybrid.gungduk.service.RegistService" />
+	<beans:bean name="LoginDao" class="com.hybrid.gungduk.dao.LoginDao" />
+	<beans:bean name="LoginService" class="com.hybrid.gungduk.service.LoginService" />
 </beans:beans>
