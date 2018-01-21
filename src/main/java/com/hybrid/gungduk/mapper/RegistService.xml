@@ -8,7 +8,7 @@
         WHERE	EMAIL = #{email}
     </select>
     
-    <select id="regist" parameterType="com.hybrid.gungduk.dto.RegistDto" resultType="int">
+    <select id="regist" parameterType="com.hybrid.gungduk.dto.UserDto" resultType="int">
         INSERT 
         	INTO USER(email, pw, phoneNum)
         VALUES(#{email}, #{pw}, #{phoneNum})
