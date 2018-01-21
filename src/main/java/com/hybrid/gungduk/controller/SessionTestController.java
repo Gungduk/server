@@ -18,6 +18,7 @@ public class SessionTestController {
 		HttpSession session = request.getSession(false);
 		
 		if(session == null) System.out.println("로그인 되어있지 않음");
+		else if(session.getAttribute("userLogInfo") == null) System.out.println("로그인 되어있지 않음");
 		
 		LoginDto logInfo = (LoginDto) session.getAttribute("userLogInfo");
 		String s = logInfo.getEmail();

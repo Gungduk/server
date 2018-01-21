@@ -39,6 +39,7 @@ public class LoginController {
     @RequestMapping(value="/api/v1/logout")
     public int logout(HttpSession session){
         session.invalidate();
+		//session.removeAttribute("userLogInfo");
         return 1;
     }
 	/*
