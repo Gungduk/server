@@ -5,6 +5,12 @@ public class UserDto {
 	String pw;
 	String phoneNum;
 	
+	public UserDto(String email, String pw, String phoneNum) {
+		super();
+		this.email = email;
+		this.pw = pw;
+		this.phoneNum = phoneNum;
+	}
 	public String getEmail() {
 		return email;
 	}
