@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"  
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+   xmlns:beans="http://www.springframework.org/schema/beans"  
+   xmlns:context="http://www.springframework.org/schema/context"  
+   xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd  
+      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">  
+  
+   <!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->  
+     
+   <!-- Enables the Spring MVC @Controller programming model -->  
+   <annotation-driven />  
+   <!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->  
+   <resources mapping="/resources/**" location="/resources/" />  
+  
+   <!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->  
+   <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
+      <beans:property name="prefix" value="/WEB-INF/views/" />  
+      <beans:property name="suffix" value=".jsp" />  
+   </beans:bean>  
+     
+   <context:component-scan base-package="com.hybrid.gungduk" />  
+     
+   <beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
+   <beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />  
+      <beans:property name="url" value="jdbc:mysql://nydb.c284tnijrgky.ap-northeast-2.rds.amazonaws.com/gungduk" />  
+      <beans:property name="username" value="user" />  
+      <beans:property name="password" value="nynydbdb1234" />  
+   </beans:bean>  
+  
+   <beans:bean name="template" class="org.springframework.jdbc.core.JdbcTemplate">  
+      <beans:property name="dataSource" ref="dataSource"/>  
+   </beans:bean>  
+     
+   <beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
+      <beans:property name="dataSource" ref="dataSource"></beans:property>  
+      <beans:property name="mapperLocations" value="classpath:com/hybrid/gungduk/mapper/*.xml"></beans:property>  
+   </beans:bean>  
+
+   <beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">  
+      <beans:constructor-arg index="0" ref="sqlSessionFactory" />  
+   </beans:bean>  
+     
+   <!-- swagger -->  
+   <beans:bean id="swagger2Config"   
+    class="springfox.documentation.swagger2.configuration.Swagger2DocumentationConfiguration"></beans:bean>  
+      
+    <default-servlet-handler />  
+   <resources location="classpath:/META-INF/resources/" mapping="swagger-ui.html"></resources>  
+   <resources location="classpath:/META-INF/resources/webjars/" mapping="/webjars/**"></resources>  
+  
+   <beans:bean name="IdPwSearchDao" class="com.hybrid.gungduk.dao.IdPwSearchDao" />  
+   <beans:bean name="IdPwSearchService" class="com.hybrid.gungduk.service.IdPwSearchService" />  
+   <beans:bean name="RegistDao" class="com.hybrid.gungduk.dao.RegistDao" />  
+   <beans:bean name="RegistService" class="com.hybrid.gungduk.service.RegistService" />  
+   <beans:bean name="LoginDao" class="com.hybrid.gungduk.dao.LoginDao" />  
+   <beans:bean name="LoginService" class="com.hybrid.gungduk.service.LoginService" />  
+   <beans:bean name="ModifyDao" class="com.hybrid.gungduk.dao.ModifyDao" />
+   <beans:bean name="QuestService" class="com.hybrid.gungduk.service.QuestService" />  
+   <beans:bean name="QuestDao" class="com.hybrid.gungduk.dao.QuestDao" />
+
+</beans:beans>  

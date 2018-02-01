@@ -8,9 +8,9 @@
         WHERE	email = #{email}
     </select>
     
-    <select id="regist" parameterType="com.hybrid.gungduk.dto.UserDto" resultType="int">
+    <insert id="regist" parameterType="com.hybrid.gungduk.dto.UserDto">
         INSERT 
         	INTO user(email, pw, phoneNum)
         VALUES(#{email}, #{pw}, #{phoneNum})
-    </select>
+    </insert>
 </mapper>
