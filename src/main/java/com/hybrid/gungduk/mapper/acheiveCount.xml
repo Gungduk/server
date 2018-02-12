@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="acheive">
+    <select id="countAll" parameterType="String" resultType="double">
+        SELECT 	count(qstName)
+        FROM 	quest
+        WHERE	plcName = #{plcName}
+    </select>
+    
+    <select id="countYes" parameterType="hashmap" resultType="double">
+        SELECT 	count(*) as countYes
+        FROM 	quest Q
+        INNER JOIN success S
+        ON	Q.qstName = S.qstName
+        WHERE	Q.plcName = #{plcName} AND (email = #{email} AND yesOrNo = 1)
+    </select>
+</mapper>
