@@ -5,10 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hybrid.gungduk.dto.LoginDto;
 
+@CrossOrigin(origins = "*")
 @Controller
 public class SessionTestController {
 	
@@ -17,14 +19,14 @@ public class SessionTestController {
 		
 		HttpSession session = request.getSession(false);
 		
-		if(session == null) System.out.println("·Î±×ÀÎ µÇ¾îÀÖÁö ¾ÊÀ½");
-		else if(session.getAttribute("userLogInfo") == null) System.out.println("·Î±×ÀÎ µÇ¾îÀÖÁö ¾ÊÀ½");
+		if(session == null) System.out.println("ï¿½Î±ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+		else if(session.getAttribute("userLogInfo") == null) System.out.println("ï¿½Î±ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		
 		LoginDto logInfo = (LoginDto) session.getAttribute("userLogInfo");
 		String s = logInfo.getEmail();
 		s += logInfo.getPw();
 		System.out.println(s);
-		System.out.println("¿Ï·á!!!!!!!!!!!!");
+		System.out.println("ï¿½Ï·ï¿½!!!!!!!!!!!!");
 		return 1;
 	}
 }

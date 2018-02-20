@@ -3,6 +3,7 @@ package com.hybrid.gungduk.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,7 +15,8 @@ import com.hybrid.gungduk.dto.AcheiveDto;
 
 import io.swagger.annotations.Api;
 
-@Api(value="AcheiveResponse", description="´Þ¼º·ü API", basePath="/api/v1/acheive")
+@CrossOrigin(origins = "*")
+@Api(value="AcheiveResponse", description="ï¿½Þ¼ï¿½ï¿½ï¿½ API", basePath="/api/v1/acheive")
 @RestController
 public class AcheiveController {
 
@@ -26,15 +28,15 @@ public class AcheiveController {
 		
 		AcheiveDto acheiveDto = null;
 		
-		double GBCount = acheiveDao.count("°æº¹±Ã");//°æº¹
-		double CGCount = acheiveDao.count("Ã¢°æ±Ã");//Ã¢°æ
-		double DSCount = acheiveDao.count("´ö¼ö±Ã");//´ö¼ö
-		double CDCount = acheiveDao.count("Ã¢´ö±Ã");//Ã¢´ö
+		double GBCount = acheiveDao.count("ï¿½æº¹ï¿½ï¿½");//ï¿½æº¹
+		double CGCount = acheiveDao.count("Ã¢ï¿½ï¿½ï¿½");//Ã¢ï¿½ï¿½
+		double DSCount = acheiveDao.count("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");//ï¿½ï¿½ï¿½ï¿½
+		double CDCount = acheiveDao.count("Ã¢ï¿½ï¿½ï¿½ï¿½");//Ã¢ï¿½ï¿½
 		
-		double GBYes = acheiveDao.yes(email, "°æº¹±Ã");
-		double CGYes = acheiveDao.yes(email, "Ã¢°æ±Ã");
-		double DSYes = acheiveDao.yes(email, "´ö¼ö±Ã");
-		double CDYes = acheiveDao.yes(email, "Ã¢´ö±Ã");
+		double GBYes = acheiveDao.yes(email, "ï¿½æº¹ï¿½ï¿½");
+		double CGYes = acheiveDao.yes(email, "Ã¢ï¿½ï¿½ï¿½");
+		double DSYes = acheiveDao.yes(email, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+		double CDYes = acheiveDao.yes(email, "Ã¢ï¿½ï¿½ï¿½ï¿½");
 		
 		double GBacheive = GBYes / GBCount * (double)100;
 		double CGacheive = CGYes / CGCount * (double)100;

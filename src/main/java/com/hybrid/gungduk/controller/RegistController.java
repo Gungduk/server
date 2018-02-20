@@ -3,6 +3,7 @@ package com.hybrid.gungduk.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,7 +15,8 @@ import com.hybrid.gungduk.dto.UserDto;
 
 import io.swagger.annotations.Api;
 
-@Api(value="RegistResponse", description="È¸¿ø°¡ÀÔ API", basePath="/api/v1/regist")
+@CrossOrigin(origins = "*")
+@Api(value="RegistResponse", description="È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ API", basePath="/api/v1/regist")
 @RestController
 public class RegistController {
 	
@@ -28,9 +30,9 @@ public class RegistController {
 		
 		int rs = regDao.registerCheck(email);
 		if(rs == 0) 
-			return -1; //ÀÌ¹Ì Á¸ÀçÇÏ´Â È¸¿øÀÓ
+			return -1; //ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ È¸ï¿½ï¿½ï¿½ï¿½
 		else if(rs == 1)
-			rs = regDao.register(regDtoReq);//¼º°øÇÏ¸é 1
+			rs = regDao.register(regDtoReq);//ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ 1
 		return rs;
 	}
 	

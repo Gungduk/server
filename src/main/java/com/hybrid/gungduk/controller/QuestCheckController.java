@@ -1,6 +1,7 @@
 package com.hybrid.gungduk.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,14 +17,15 @@ import com.hybrid.gungduk.dto.UserDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
-@Api(value="questResponse", description="Äù½ºÆ® API", basePath="/api/v1/quest")
+@CrossOrigin(origins = "*")
+@Api(value="questResponse", description="ï¿½ï¿½ï¿½ï¿½Æ® API", basePath="/api/v1/quest")
 @RestController
 public class QuestCheckController {
 	
 	@Autowired
 	QuestDao questDao;
 	
-	@ApiOperation(value = "showQuest", notes = "ÇØ´ç Äù½ºÆ®ÀÇ Á¤º¸ ¶ç¿öÁÖ±â")
+	@ApiOperation(value = "showQuest", notes = "ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö±ï¿½")
 	@RequestMapping(value = "/api/v1/quest", method = RequestMethod.POST)
 	public @ResponseBody QuestDto showQuest(@RequestBody LotateDto lotateDtoReq){
 		
@@ -39,19 +41,19 @@ public class QuestCheckController {
 		return rs;
 	} 
 	
-//	@ApiOperation(value = "answerCheck", notes = "»ç¿ëÀÚ°¡ ¼±ÅÃÇÑ º¸±â°¡ ´äÀÌ¶û ¸Â´ÂÁö È®ÀÎ")
+//	@ApiOperation(value = "answerCheck", notes = "ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â°¡ ï¿½ï¿½ï¿½Ì¶ï¿½ ï¿½Â´ï¿½ï¿½ï¿½ È®ï¿½ï¿½")
 //	@RequestMapping(value = "/api/v1/quest/submit", method = RequestMethod.POST)
 //	public @ResponseBody int checkAnswer(@RequestBody PlcDto plcDtoReq){
 //		String input = plcDtoReq.getInput();
 //		String answer = questDao.checkAnswer(plcDtoReq);
 //		
 //		if(input.equals(answer))
-//			return 1;//Á¤´äÀÏ °æ¿ì -> /api/v1/quest/submit/success ½ÇÇà
+//			return 1;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ -> /api/v1/quest/submit/success ï¿½ï¿½ï¿½ï¿½
 //		else
-//			return -1;//Æ²·ÈÀ» °æ¿ì -> ³¡
+//			return -1;//Æ²ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ -> ï¿½ï¿½
 //	}
 //	
-//	@ApiOperation(value = "correct", notes = "Á¤´äÀÏ°æ¿ì")
+//	@ApiOperation(value = "correct", notes = "ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ï¿½")
 //	@RequestMapping(value = "/api/v1/quest/submit/success", method = RequestMethod.POST)
 //	public @ResponseBody int questSuccess(@RequestBody SuccDto succDtoReq){
 //		
