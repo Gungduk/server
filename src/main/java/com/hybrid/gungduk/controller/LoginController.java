@@ -3,6 +3,7 @@ package com.hybrid.gungduk.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,14 +16,15 @@ import com.hybrid.gungduk.dto.LoginDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
-@Api(value="LoginResponse", description="·Î±×ÀÎ API", basePath="/api/v1/login")
+@CrossOrigin(origins = "*")
+@Api(value="LoginResponse", description="ë¡œê·¸ì¸API", basePath="/api/v1/login")
 @RestController
 public class LoginController {
 	
 	@Autowired
 	LoginDao logDao;
 
-	@ApiOperation(value = "login", notes = "email°ú pw°¡ ÀÏÄ¡ÇÏ¸é ¼¼¼Ç¿¡ userLogInfoÀÌ¶õ ÀÌ¸§À¸·Î LoginDto°ªÀ» ÀúÀåÇÑ ÈÄ 1 ¹İÈ¯/ ½ÇÆĞ½Ã -1 ¹İÈ¯")
+	@ApiOperation(value = "login", notes = "emailê³¼ pwê°€ ì¼ì¹˜í•˜ë©´ ì„¸ì…˜ì— userLogInfoì´ë€ ì´ë¦„ìœ¼ë¡œ LoginDtoê°’ì„ ì €ì¥í•œ í›„ 1 ë°˜í™˜/ ì‹¤íŒ¨ì‹œ -1 ë°˜í™˜")
     @RequestMapping(value="/api/v1/login", method=RequestMethod.POST)
     public @ResponseBody int loginProcess(@RequestBody LoginDto logDtoReq, HttpSession session){
 	   
@@ -30,12 +32,12 @@ public class LoginController {
 	   
 	   if(loginUser != null){
 		   session.setAttribute("userLogInfo", logDtoReq);
-		   return 1;//¼º°ø
+		   return 1;//ï¿½ï¿½ï¿½ï¿½
 	   }
-	   return -1;//½ÇÆĞ
+	   return -1;//ï¿½ï¿½ï¿½ï¿½
     }
 
-	@ApiOperation(value = "logout", notes = "¼¼¼Ç ¸ğµÎ ºñ¿ì°í 1¹İÈ¯")
+	@ApiOperation(value = "logout", notes = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½È¯")
     @RequestMapping(value="/api/v1/logout")
     public int logout(HttpSession session){
         session.invalidate();
@@ -43,9 +45,9 @@ public class LoginController {
         return 1;
     }
 	/*
-	 * ³ªÁß¿¡ ¼¼¼Ç ÇÊ¿äÇÑ ÆäÀÌÁö¿¡¼­ session.getAttribute("userLogInfo");»ç¿ëÇØ¼­ LoginDto°´Ã¼ Àü´Ş¹ŞÀ½
-	 * if(session.getAttribute("userLogInfo") == null) : ·Î±×ÀÎÀÌ ¾ÈµÈ »óÅÂ
-	 * ¸Å È­¸é¸¶´Ù session.getAttributeÇÏ±â ±ÍÂúÀ¸¸é @SessionAttributes ¼¼¼Ç ¿¬µ¿ÇÏ±â
+	 * ë‚˜ì¤‘ì— ì„¸ì…˜ í•„ìš”í•œ í˜ì´ì§€ì—ì„œ session.getAttribute("userLogInfo");ì‚¬ìš©í•´ì„œ LoginDtoê°ì²´ ì „ë‹¬ë°›ìŒ
+	 * if(session.getAttribute("userLogInfo") == null) : ë¡œê·¸ì¸ì´ ì•ˆëœ ìƒíƒœ
+	 * ë§¤ í™”ë©´ë§ˆë‹¤ session.getAttributeí•˜ê¸° ê·€ì°®ìœ¼ë©´ @SessionAttributes ì„¸ì…˜ ì—°ë™í•˜ê¸°
 	 * */
      
 }

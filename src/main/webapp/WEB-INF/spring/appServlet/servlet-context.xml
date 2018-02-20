@@ -26,7 +26,7 @@
    <beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />  
       <beans:property name="url" value="jdbc:mysql://nydb.c284tnijrgky.ap-northeast-2.rds.amazonaws.com/gungduk" />  
       <beans:property name="username" value="user" />  
-      <beans:property name="password" value="nynydbdb1234" />  
+      <beans:property name="password" value="nynydbdb!newpw" />  
    </beans:bean>  
   
    <beans:bean name="template" class="org.springframework.jdbc.core.JdbcTemplate">  
@@ -59,5 +59,7 @@
    <beans:bean name="ModifyDao" class="com.hybrid.gungduk.dao.ModifyDao" />
    <beans:bean name="QuestService" class="com.hybrid.gungduk.service.QuestService" />  
    <beans:bean name="QuestDao" class="com.hybrid.gungduk.dao.QuestDao" />
+   <beans:bean name="AcheiveService" class="com.hybrid.gungduk.service.AcheiveService" />  
+   <beans:bean name="AcheiveDao" class="com.hybrid.gungduk.dao.AcheiveDao" />
 
 </beans:beans>  
