@@ -16,7 +16,8 @@ import com.hybrid.gungduk.dto.AcheiveDto;
 import io.swagger.annotations.Api;
 
 @CrossOrigin(origins = "*")
-@Api(value="AcheiveResponse", description="�޼��� API", basePath="/api/v1/acheive")
+
+@Api(value="AcheiveResponse", description="달성률 API", basePath="/api/v1/acheive")
 @RestController
 public class AcheiveController {
 
@@ -28,6 +29,7 @@ public class AcheiveController {
 		
 		AcheiveDto acheiveDto = null;
 		
+<<<<<<< HEAD
 		double GBCount = acheiveDao.count("�溹��");//�溹
 		double CGCount = acheiveDao.count("â���");//â��
 		double DSCount = acheiveDao.count("������");//����
@@ -37,6 +39,17 @@ public class AcheiveController {
 		double CGYes = acheiveDao.yes(email, "â���");
 		double DSYes = acheiveDao.yes(email, "������");
 		double CDYes = acheiveDao.yes(email, "â����");
+=======
+		double GBCount = acheiveDao.count("경복궁");
+		double CGCount = acheiveDao.count("창경궁");
+		double DSCount = acheiveDao.count("덕수궁");
+		double CDCount = acheiveDao.count("창덕궁");
+		
+		double GBYes = acheiveDao.yes(email, "경복궁");
+		double CGYes = acheiveDao.yes(email, "창경궁");
+		double DSYes = acheiveDao.yes(email, "덕수궁");
+		double CDYes = acheiveDao.yes(email, "창덕궁");
+>>>>>>> 15296dc9a68e6964ddecd515922431490118a0f5
 		
 		double GBacheive = GBYes / GBCount * (double)100;
 		double CGacheive = CGYes / CGCount * (double)100;

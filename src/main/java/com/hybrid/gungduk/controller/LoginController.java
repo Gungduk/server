@@ -17,14 +17,14 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @CrossOrigin(origins = "*")
-@Api(value="LoginResponse", description="�α��� API", basePath="/api/v1/login")
+@Api(value="LoginResponse", description="로그인API", basePath="/api/v1/login")
 @RestController
 public class LoginController {
 	
 	@Autowired
 	LoginDao logDao;
 
-	@ApiOperation(value = "login", notes = "email�� pw�� ��ġ�ϸ� ���ǿ� userLogInfo�̶� �̸����� LoginDto���� ������ �� 1 ��ȯ/ ���н� -1 ��ȯ")
+	@ApiOperation(value = "login", notes = "email과 pw가 일치하면 세션에 userLogInfo이란 이름으로 LoginDto값을 저장한 후 1 반환/ 실패시 -1 반환")
     @RequestMapping(value="/api/v1/login", method=RequestMethod.POST)
     public @ResponseBody int loginProcess(@RequestBody LoginDto logDtoReq, HttpSession session){
 	   
@@ -45,9 +45,9 @@ public class LoginController {
         return 1;
     }
 	/*
-	 * ���߿� ���� �ʿ��� ���������� session.getAttribute("userLogInfo");����ؼ� LoginDto��ü ���޹���
-	 * if(session.getAttribute("userLogInfo") == null) : �α����� �ȵ� ����
-	 * �� ȭ�鸶�� session.getAttribute�ϱ� �������� @SessionAttributes ���� �����ϱ�
+	 * 나중에 세션 필요한 페이지에서 session.getAttribute("userLogInfo");사용해서 LoginDto객체 전달받음
+	 * if(session.getAttribute("userLogInfo") == null) : 로그인이 안된 상태
+	 * 매 화면마다 session.getAttribute하기 귀찮으면 @SessionAttributes 세션 연동하기
 	 * */
      
 }

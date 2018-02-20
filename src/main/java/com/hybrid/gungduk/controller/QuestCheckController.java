@@ -18,14 +18,14 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @CrossOrigin(origins = "*")
-@Api(value="questResponse", description="����Ʈ API", basePath="/api/v1/quest")
+@Api(value="questResponse", description="퀘스트API", basePath="/api/v1/quest")
 @RestController
 public class QuestCheckController {
 	
 	@Autowired
 	QuestDao questDao;
 	
-	@ApiOperation(value = "showQuest", notes = "�ش� ����Ʈ�� ���� ����ֱ�")
+	@ApiOperation(value = "showQuest", notes = "해당 퀘스트의 정보 띄워주기")
 	@RequestMapping(value = "/api/v1/quest", method = RequestMethod.POST)
 	public @ResponseBody QuestDto showQuest(@RequestBody LotateDto lotateDtoReq){
 		

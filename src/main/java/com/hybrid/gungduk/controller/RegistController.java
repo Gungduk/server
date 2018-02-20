@@ -16,7 +16,7 @@ import com.hybrid.gungduk.dto.UserDto;
 import io.swagger.annotations.Api;
 
 @CrossOrigin(origins = "*")
-@Api(value="RegistResponse", description="ȸ������ API", basePath="/api/v1/regist")
+@Api(value="RegistResponse", description="회원가입 API", basePath="/api/v1/regist")
 @RestController
 public class RegistController {
 	
@@ -30,9 +30,9 @@ public class RegistController {
 		
 		int rs = regDao.registerCheck(email);
 		if(rs == 0) 
-			return -1; //�̹� �����ϴ� ȸ����
+			return -1; //이미 존재하는 회원임
 		else if(rs == 1)
-			rs = regDao.register(regDtoReq);//�����ϸ� 1
+			rs = regDao.register(regDtoReq);//성공하면 1
 		return rs;
 	}
 	
