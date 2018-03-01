@@ -1,11 +1,13 @@
 package com.hybrid.gungduk.dao;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.hybrid.gungduk.dto.AcheiveDto;
+import com.hybrid.gungduk.dto.LoginDto;
 
 public class AcheiveDao {
 	
@@ -32,5 +34,13 @@ public class AcheiveDao {
 		acheiveDto.setChangdeok(CDacheive);
 		
 		return acheiveDto;
+	}
+	
+	//퀘스트 완료 목록 ..?
+	public List<HashMap<String, Object>> qstList(String plcName, String email){
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("email", email);
+		map.put("plcName", plcName);
+		return sqlSession.selectList("acheive.successQst", map);
 	}
 }
