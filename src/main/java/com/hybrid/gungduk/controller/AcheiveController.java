@@ -1,5 +1,6 @@
 package com.hybrid.gungduk.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,5 +47,13 @@ public class AcheiveController {
 		
 		return acheiveDao.putData(GBacheive, CGacheive, DSacheive, CDacheive);
 	}
+	
+	//완료된 퀘스트이름 리스트
+	@RequestMapping(value = "/api/v1/successQst", method = RequestMethod.POST)
+	public @ResponseBody List<HashMap<String, Object>> acheive(@RequestParam String email, String plcName){
+	
+		return acheiveDao.qstList(email, plcName);
+	}
+
 	
 }
