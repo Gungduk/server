@@ -15,14 +15,14 @@ public class ModifyDao {
 	private UserDto dto;
 	
 	
-	public List<Object> info(String email){
-		return sqlSession.selectList("modify.info");
+	public List<UserDto> info(String email){
+		return sqlSession.selectList("modify.info", email);
 	}
 	
 	
 	public void updateInfo(String email, String pw, String phoneNum){
 		dto = new UserDto(email, pw, phoneNum);
 
-		sqlSession.update("orm.mybatis.MemberMapper.update",dto);
+		sqlSession.update("modify.updateInfo",dto);
 	}
 }

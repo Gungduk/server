@@ -29,17 +29,6 @@ public class AcheiveController {
 		
 		AcheiveDto acheiveDto = null;
 		
-<<<<<<< HEAD
-		double GBCount = acheiveDao.count("�溹��");//�溹
-		double CGCount = acheiveDao.count("â���");//â��
-		double DSCount = acheiveDao.count("������");//����
-		double CDCount = acheiveDao.count("â����");//â��
-		
-		double GBYes = acheiveDao.yes(email, "�溹��");
-		double CGYes = acheiveDao.yes(email, "â���");
-		double DSYes = acheiveDao.yes(email, "������");
-		double CDYes = acheiveDao.yes(email, "â����");
-=======
 		double GBCount = acheiveDao.count("경복궁");
 		double CGCount = acheiveDao.count("창경궁");
 		double DSCount = acheiveDao.count("덕수궁");
@@ -49,7 +38,6 @@ public class AcheiveController {
 		double CGYes = acheiveDao.yes(email, "창경궁");
 		double DSYes = acheiveDao.yes(email, "덕수궁");
 		double CDYes = acheiveDao.yes(email, "창덕궁");
->>>>>>> 15296dc9a68e6964ddecd515922431490118a0f5
 		
 		double GBacheive = GBYes / GBCount * (double)100;
 		double CGacheive = CGYes / CGCount * (double)100;
