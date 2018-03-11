@@ -7,7 +7,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.hybrid.gungduk.dto.AcheiveDto;
-import com.hybrid.gungduk.dto.LoginDto;
 
 public class AcheiveDao {
 	
@@ -38,7 +37,7 @@ public class AcheiveDao {
 	
 	//퀘스트 완료 목록 
 	public List<String> qstList(String email, String plcName){
-		HashMap<String, Object> map = new HashMap<String, Object>();
+		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("email", email);
 		map.put("plcName", plcName);
 		return sqlSession.selectList("acheive.successQst", map);
