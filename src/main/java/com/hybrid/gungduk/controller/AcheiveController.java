@@ -48,7 +48,7 @@ public class AcheiveController {
 		return acheiveDao.putData(GBacheive, CGacheive, DSacheive, CDacheive);
 	}
 	
-	//완료된 퀘스트이름 리스트
+	//완료된 퀘스트이름 리스트//
 	@RequestMapping(value = "/api/v1/successQst", method = RequestMethod.POST)
 	public @ResponseBody List<String> acheive(@RequestParam String email, String plcName){
 	
