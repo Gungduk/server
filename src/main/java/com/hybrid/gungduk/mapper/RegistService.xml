@@ -13,4 +13,15 @@
         	INTO user(email, pw, phoneNum)
         VALUES(#{email}, #{pw}, #{phoneNum})
     </insert>
+    
+    <select id="getQuest" resultType="String">
+		SELECT	qstName
+		FROM	quest    
+    </select>
+    
+    <insert id="insertQuest" parameterType="hashmap">
+    	INSERT
+    		INTO	success (email, qstName, yesOrNo)
+		VALUES		(#{email}, #{qstName}, 0)
+    </insert>
 </mapper>

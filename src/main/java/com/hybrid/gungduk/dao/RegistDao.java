@@ -1,5 +1,9 @@
 package com.hybrid.gungduk.dao;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -10,15 +14,31 @@ public class RegistDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public int registerCheck(String email){ //Áßº¹µÇ´Â ¾ÆÀÌµð ÀÖ´ÂÁö Ã¼Å©
+	public int registerCheck(String email){ //ï¿½ßºï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ Ã¼Å©
 	
 		String rs = sqlSession.selectOne("register.registCheck", email);
 		
-		if(rs != null) return 0; //ÀÌ¹Ì Á¸ÀçÇÏ´Â È¸¿ø
-		else return 1; //°¡ÀÔ °¡´ÉÇÑ È¸¿ø ¾ÆÀÌµð
+		if(rs != null) return 0; //ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ È¸ï¿½ï¿½
+		else return 1; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
 	}
 	
 	public int register(UserDto regDtoReq){
 		return sqlSession.insert("register.regist", regDtoReq);
+	}
+	
+	public List<String> getQuest(){
+		return sqlSession.selectList("register.getQuest");
+	}
+	
+	public void insertQuest(String email){
+		List<String> qst = getQuest();
+		HashMap<String, String> map = new HashMap<String, String>();
+		Iterator<String> iterator = qst.iterator();
+		map.put("email", email);
+		
+		while(iterator.hasNext()){
+			map.put("qstName", iterator.next());
+			sqlSession.insert("register.insertQuest", map);
+		}
 	}
 }

@@ -29,10 +29,12 @@ public class RegistController {
 		String email = regDtoReq.getEmail();
 		
 		int rs = regDao.registerCheck(email);
-		if(rs == 0) 
+		if(rs == 0){ 
 			return -1; //이미 존재하는 회원임
-		else if(rs == 1)
+		}else if(rs == 1){
 			rs = regDao.register(regDtoReq);//성공하면 1
+			regDao.insertQuest(email);
+		}
 		return rs;
 	}
 	
