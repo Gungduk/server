@@ -26,15 +26,17 @@ public class LoginController {
 
 	@ApiOperation(value = "login", notes = "email과 pw가 일치하면 세션에 userLogInfo이란 이름으로 LoginDto값을 저장한 후 1 반환/ 실패시 -1 반환")
     @RequestMapping(value="/api/v1/login", method=RequestMethod.POST)
-    public @ResponseBody int loginProcess(@RequestBody LoginDto logDtoReq, HttpSession session){
+    public @ResponseBody String loginProcess(@RequestBody LoginDto logDtoReq, HttpSession session){
 	   
 	   String loginUser = logDao.loginCheck(logDtoReq);
 	   
 	   if(loginUser != null){
 		   session.setAttribute("userLogInfo", logDtoReq);
-		   return 1;//����
+		   LoginDto logInfo = (LoginDto) session.getAttribute("userLogInfo"); 
+		      String s = logInfo.getEmail();
+		   return s;//����
 	   }
-	   return -1;//����
+	   return "fail";//����
     }
 
 	@ApiOperation(value = "logout", notes = "���� ��� ���� 1��ȯ")

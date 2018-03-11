@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hybrid.gungduk.dao.ModifyDao;
+import com.hybrid.gungduk.dto.UserDto;
 
 @CrossOrigin(origins = "*")
 @Controller
@@ -20,7 +21,7 @@ public class ModifyController {
 	ModifyDao modifyDao;
 	
 	@RequestMapping(value = "/api/v1/modifyInfo", method = RequestMethod.POST)
-	public @ResponseBody List<Object> modifyInfo(@RequestParam String email){
+	public @ResponseBody List<UserDto> modifyInfo(@RequestParam String email){
 		return modifyDao.info(email);
 	}
 	

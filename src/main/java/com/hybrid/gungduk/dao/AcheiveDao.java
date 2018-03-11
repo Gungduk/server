@@ -7,7 +7,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.hybrid.gungduk.dto.AcheiveDto;
-import com.hybrid.gungduk.dto.LoginDto;
 
 public class AcheiveDao {
 	

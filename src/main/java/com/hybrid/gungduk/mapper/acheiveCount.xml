@@ -16,7 +16,7 @@
         WHERE	Q.plcName = #{plcName} AND (email = #{email} AND yesOrNo = 1)
     </select>
     
-    <!-- 퀘스트 완료한 qstName들! -->
+    <!-- 퀘스트 완료한 qstName들 -->
     <select id ="successQst" parameterType="hashmap" resultType="String">
     	SELECT Q.qstName
     	FROM quest Q

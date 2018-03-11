@@ -5,6 +5,8 @@ public class UserDto {
 	String pw;
 	String phoneNum;
 	
+	public UserDto() {}
+	
 	public UserDto(String email, String pw, String phoneNum) {
 		super();
 		this.email = email;
