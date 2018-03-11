@@ -50,7 +50,7 @@ public class AcheiveController {
 	
 	//완료된 퀘스트이름 리스트
 	@RequestMapping(value = "/api/v1/successQst", method = RequestMethod.POST)
-	public @ResponseBody List<HashMap<String, Object>> acheive(@RequestParam String email, String plcName){
+	public @ResponseBody List<String> acheive(@RequestParam String email, String plcName){
 	
 		return acheiveDao.qstList(email, plcName);
 	}
