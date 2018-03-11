@@ -5,6 +5,11 @@ public class SuccDto {
 	String qstName;
 	String yesOrNo;
 	
+	public SuccDto(String email, String qstName) {
+		super();
+		this.email = email;
+		this.qstName = qstName;
+	}
 	public String getEmail() {
 		return email;
 	}

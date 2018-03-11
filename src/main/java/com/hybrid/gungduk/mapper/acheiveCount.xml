@@ -17,7 +17,7 @@
     </select>
     
     <!-- 퀘스트 완료한 qstName들 -->
-    <select id ="successQst" parameterType="hashmap" resultType="String">
+    <select id ="successQst" parameterType="java.util.HashMap" resultType="java.util.List">
     	SELECT Q.qstName
     	FROM quest Q
     	INNER JOIN success S

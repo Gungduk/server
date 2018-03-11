@@ -36,8 +36,8 @@ public class AcheiveDao {
 		return acheiveDto;
 	}
 	
-	//퀘스트 완료 목록
-	public List<HashMap<String, Object>> qstList(String plcName, String email){
+	//퀘스트 완료 목록 
+	public List<String> qstList(String email, String plcName){
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("email", email);
 		map.put("plcName", plcName);
