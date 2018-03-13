@@ -2,14 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="quest">
-	<select id="showQuest" parameterType="com.hybrid.gungduk.dto.QuestDto" resultType="com.hybrid.gungduk.dto.QuestDto">
+	
+	<select id="showQuest" parameterType="String" resultType="com.hybrid.gungduk.dto.QuestDto">
+        SELECT 	*
+        FROM 	quest
+        WHERE	qstName = #{qstName}
+    </select>
+
+<!--	<select id="showQuest" parameterType="com.hybrid.gungduk.dto.QuestDto" resultType="com.hybrid.gungduk.dto.QuestDto">
         SELECT 	qstName, plcName, plcInfo, qstAnswer, qstEx1, qstEx2
         FROM 	quest
         WHERE	latitude BETWEEN #{minLati} AND #{maxLati}
         		AND longitude BETWEEN #{minLogi} AND #{maxLogi}
     </select>
 
-  <!--   <select id="checkAnswer" parameterType="com.hybrid.gungduk.dto.PlcDto" resultType="String">
+     <select id="checkAnswer" parameterType="com.hybrid.gungduk.dto.PlcDto" resultType="String">
         SELECT 	qstAnswer
         FROM 	quest
         WHERE	plcName = #{plcName} AND qstName = #{qstName}

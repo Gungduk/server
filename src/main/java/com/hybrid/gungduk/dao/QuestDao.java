@@ -1,5 +1,7 @@
 package com.hybrid.gungduk.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,9 +15,12 @@ public class QuestDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public QuestDto show(LotateDto lotateDtoReq){
-		QuestDto result = sqlSession.selectOne("quest.showQuest", lotateDtoReq);
-		return result;
+	private QuestDto dto;
+	
+	public QuestDto show(String qstName){
+		
+		QuestDto dto = sqlSession.selectOne("quest.showQuest", qstName);
+		return dto;
 	}
 //	
 //	public String checkAnswer(PlcDto plcDtoReq){
@@ -26,8 +31,8 @@ public class QuestDao {
 //	public int checkSucc(SuccDto sucDtoReq){
 //		String yesOrNo = sqlSession.selectOne("quest.checkSucc", sucDtoReq);
 //		if(yesOrNo != null)
-//			return 2;//Á¸ÀçÇÔ
+//			return 2;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //		else 
-//			return sqlSession.insert("quest.createSucc", sucDtoReq);//Á¸ÀçÇÏÁö ¾ÊÀ¸´Ï ¸¸µé¾îÁÜ
+//			return sqlSession.insert("quest.createSucc", sucDtoReq);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //	}
 }
