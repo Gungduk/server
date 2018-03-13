@@ -30,15 +30,15 @@ public class AcheiveController {
 		
 		AcheiveDto acheiveDto = null;
 		
-		double GBCount = acheiveDao.count("경복궁");
-		double CGCount = acheiveDao.count("창경궁");
-		double DSCount = acheiveDao.count("덕수궁");
-		double CDCount = acheiveDao.count("창덕궁");
+		double GBCount = acheiveDao.count("kbk");
+		double CGCount = acheiveDao.count("ckk");
+		double DSCount = acheiveDao.count("dsk");
+		double CDCount = acheiveDao.count("cdk");
 		
-		double GBYes = acheiveDao.yes(email, "경복궁");
-		double CGYes = acheiveDao.yes(email, "창경궁");
-		double DSYes = acheiveDao.yes(email, "덕수궁");
-		double CDYes = acheiveDao.yes(email, "창덕궁");
+		double GBYes = acheiveDao.yes(email, "kbk");
+		double CGYes = acheiveDao.yes(email, "ckk");
+		double DSYes = acheiveDao.yes(email, "dsk");
+		double CDYes = acheiveDao.yes(email, "cdk");
 		
 		double GBacheive = GBYes / GBCount * (double)100;
 		double CGacheive = CGYes / CGCount * (double)100;
