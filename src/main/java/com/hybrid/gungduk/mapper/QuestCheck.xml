@@ -9,21 +9,9 @@
         		AND longitude BETWEEN #{minLogi} AND #{maxLogi}
     </select>
 
-  <!--   <select id="checkAnswer" parameterType="com.hybrid.gungduk.dto.PlcDto" resultType="String">
-        SELECT 	qstAnswer
-        FROM 	quest
-        WHERE	plcName = #{plcName} AND qstName = #{qstName}
-    </select>
-    
-    <select id="checkSucc" parameterType="com.hybrid.gungduk.dto.SuccDto" resultType="String">
-        SELECT 	yesOrNo
-        FROM 	success
-        WHERE	email = #{email} AND qstName = #{qstName}
-    </select>
-    
-    <insert id="createSucc" parameterType="com.hybrid.gungduk.dto.SuccDto">
-        INSERT 
-        	INTO success(email, qstName, yesOrNo)
-        VALUES(#{email}, #{qstName}, #{yesOrNo})
-    </insert> -->
+	<update id="successQuest" parameterType="hashmap">
+		UPDATE success
+     	SET yesOrNo = 1
+     	WHERE email = #{email} AND qstName = #{qstName}
+	</update>
 </mapper>

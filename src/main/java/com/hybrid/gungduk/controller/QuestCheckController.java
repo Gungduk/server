@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -40,26 +41,15 @@ public class QuestCheckController {
 		QuestDto rs = questDao.show(lotateDtoReq);
 		return rs;
 	} 
-	
-//	@ApiOperation(value = "answerCheck", notes = "����ڰ� ������ ���Ⱑ ���̶� �´��� Ȯ��")
-//	@RequestMapping(value = "/api/v1/quest/submit", method = RequestMethod.POST)
-//	public @ResponseBody int checkAnswer(@RequestBody PlcDto plcDtoReq){
-//		String input = plcDtoReq.getInput();
-//		String answer = questDao.checkAnswer(plcDtoReq);
-//		
-//		if(input.equals(answer))
-//			return 1;//������ ��� -> /api/v1/quest/submit/success ����
-//		else
-//			return -1;//Ʋ���� ��� -> ��
-//	}
-//	
-//	@ApiOperation(value = "correct", notes = "�����ϰ��")
-//	@RequestMapping(value = "/api/v1/quest/submit/success", method = RequestMethod.POST)
-//	public @ResponseBody int questSuccess(@RequestBody SuccDto succDtoReq){
-//		
-//		int rs = questDao.checkSucc(succDtoReq);
-//		return rs;
-//	}
+
+	@ApiOperation(value = "successQuest", notes = "해당 퀘스트의 yesOrNo 업데이트")
+	@RequestMapping(value = "/api/v1/successQuest", method = RequestMethod.POST)
+	public @ResponseBody void successQuest(@RequestParam String email, String qstName){
+		
+		questDao.successQuest(email, qstName);
+	} 
+
+
 } 
 		
 		

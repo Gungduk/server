@@ -1,12 +1,12 @@
 package com.hybrid.gungduk.dao;
 
+import java.util.HashMap;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.hybrid.gungduk.dto.LotateDto;
 import com.hybrid.gungduk.dto.QuestDto;
-import com.hybrid.gungduk.dto.SuccDto;
-import com.hybrid.gungduk.dto.UserDto;
 
 public class QuestDao {
 
@@ -17,17 +17,12 @@ public class QuestDao {
 		QuestDto result = sqlSession.selectOne("quest.showQuest", lotateDtoReq);
 		return result;
 	}
-//	
-//	public String checkAnswer(PlcDto plcDtoReq){
-//		String answer = sqlSession.selectOne("quest.checkAnswer", plcDtoReq);
-//		return answer;
-//	}
-//	
-//	public int checkSucc(SuccDto sucDtoReq){
-//		String yesOrNo = sqlSession.selectOne("quest.checkSucc", sucDtoReq);
-//		if(yesOrNo != null)
-//			return 2;//존재함
-//		else 
-//			return sqlSession.insert("quest.createSucc", sucDtoReq);//존재하지 않으니 만들어줌
-//	}
+
+	public void successQuest (String email, String qstName){
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("email", email);
+		map.put("qstName", qstName);
+		
+		sqlSession.update("quest.successQuest", map);
+	}
 }

@@ -19,6 +19,7 @@ public class IdPwSearchController {
 	
 	@RequestMapping(value = "/api/v1/searchId", method = RequestMethod.POST)
 	public @ResponseBody String searchId(@RequestParam String phoneNum){
+		
 		return idPwSearchDao.searchId(phoneNum);
 	}
 	
