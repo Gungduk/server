@@ -3,10 +3,10 @@ package com.hybrid.gungduk.dto;
 public class QuestDto {
 	String qstName;
 	String plcName;
+	String qstAnswer;
 	String plcInfo;
 	String latitude;
 	String logitude;
-	String qstAnswer;
 	String qstEx1;
 	String qstEx2;
 	
