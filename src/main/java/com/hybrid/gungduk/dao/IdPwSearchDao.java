@@ -12,7 +12,7 @@ public class IdPwSearchDao {
 		return sqlSession.selectOne("search.searchId", phoneNum);
 	}
 	
-	public String searchPw(String email){
-		return sqlSession.selectOne("search.searchPw", email);
+	public String searchPw(String id){
+		return sqlSession.selectOne("search.searchPw", id);
 	}
 }

@@ -15,13 +15,13 @@ public class ModifyDao {
 	private UserDto dto;
 	
 	
-	public List<UserDto> info(String email){
-		return sqlSession.selectList("modify.info", email);
+	public List<UserDto> info(String id){
+		return sqlSession.selectList("modify.info", id);
 	}
 	
 	
-	public void updateInfo(String email, String pw, String phoneNum){
-		dto = new UserDto(email, pw, phoneNum);
+	public void updateInfo(String id, String pw, String phoneNum){
+		dto = new UserDto(id, pw, phoneNum);
 
 		sqlSession.update("modify.updateInfo",dto);
 	}

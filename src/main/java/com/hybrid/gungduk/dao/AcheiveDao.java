@@ -36,9 +36,9 @@ public class AcheiveDao {
 	}
 	
 	//퀘스트 완료 목록//
-	public List<String> qstList(String email, String plcName){
+	public List<String> qstList(String id, String plcName){
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("email", email);
+		map.put("id", id);
 		map.put("plcName", plcName);
 		return sqlSession.selectList("acheive.successQst", map);
 	}

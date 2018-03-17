@@ -22,6 +22,6 @@
     	FROM quest Q
     	INNER JOIN success S
     	ON Q.qstName = S.qstName
-    	WHERE Q.plcName = #{plcName} AND (email = #{email} AND yesOrNo = 1)
+    	WHERE Q.plcName = #{plcName} AND (id = #{id} AND yesOrNo = 1)
     </select>
 </mapper>

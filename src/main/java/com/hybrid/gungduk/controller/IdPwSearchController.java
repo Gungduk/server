@@ -18,13 +18,32 @@ public class IdPwSearchController {
 	IdPwSearchDao idPwSearchDao;
 	
 	@RequestMapping(value = "/api/v1/searchId", method = RequestMethod.POST)
-	public @ResponseBody String searchId(@RequestParam String phoneNum){
-		
-		return idPwSearchDao.searchId(phoneNum);
+	public @ResponseBody String searchId(@RequestParam String phoneNum)throws NullPointerException{
+		String phone = idPwSearchDao.searchId(phoneNum);
+		try{
+			if(phone.length() == 0){
+				System.out.println("error");
+				return "error";
+			}else{
+				return phone;
+			}
+		}catch(NullPointerException e){
+			return "error";
+		}
 	}
 	
 	@RequestMapping(value = "/api/v1/searchPw", method = RequestMethod.POST)
-	public @ResponseBody String searchPw(@RequestParam String email){
-		return idPwSearchDao.searchPw(email);
+	public @ResponseBody String searchPw(@RequestParam String id) throws NullPointerException{
+		String iid = idPwSearchDao.searchPw(id);
+		try{
+			if(iid.length() == 0){
+				System.out.println("error");
+				return "error";
+			}else{
+				return iid;
+			}
+		}catch(NullPointerException e){
+			return "error";
+		}
 	}
 }

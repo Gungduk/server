@@ -26,14 +26,14 @@ public class RegistController {
 	@RequestMapping(value = "/api/v1/regist", method = RequestMethod.POST)
 	public @ResponseBody int regist(@RequestBody UserDto regDtoReq){
 
-		String email = regDtoReq.getEmail();
+		String id = regDtoReq.getId();
 		
-		int rs = regDao.registerCheck(email);
+		int rs = regDao.registerCheck(id);
 		if(rs == 0){ 
 			return -1; //이미 존재하는 회원임
 		}else if(rs == 1){
 			rs = regDao.register(regDtoReq);//성공하면 1
-			regDao.insertQuest(email);
+			regDao.insertQuest(id);
 		}
 		return rs;
 	}

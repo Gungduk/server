@@ -1,23 +1,23 @@
 package com.hybrid.gungduk.dto;
 
 public class UserDto {
-	String email;
+	String id;
 	String pw;
 	String phoneNum;
 	
 	public UserDto() {}
 	
-	public UserDto(String email, String pw, String phoneNum) {
+	public UserDto(String id, String pw, String phoneNum) {
 		super();
-		this.email = email;
+		this.id = id;
 		this.pw = pw;
 		this.phoneNum = phoneNum;
 	}
-	public String getEmail() {
-		return email;
+	public String getId() {
+		return id;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getPw() {
 		return pw;

@@ -7,14 +7,14 @@
     <select id="info" parameterType="String" resultType="com.hybrid.gungduk.dto.UserDto">
         SELECT 	*
         FROM 	user
-        WHERE	email = #{email}
+        WHERE	id = #{id}
     </select>
 
     <update id="updateInfo" parameterType="String">
         UPDATE user
      	SET pw = #{pw},
          	phoneNum = #{phoneNum}
-     	WHERE email = #{email}
+     	WHERE id = #{id}
     </update>
  
 </mapper>

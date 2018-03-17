@@ -3,7 +3,7 @@
 
 <mapper namespace="search">
     <select id="searchId" parameterType="String" resultType="String">
-        SELECT 	email
+        SELECT 	id
         FROM 	user
         WHERE	phoneNum = #{phoneNum}
     </select>
@@ -11,6 +11,6 @@
     <select id="searchPw" parameterType="String" resultType="String">
         SELECT 	pw
         FROM 	user
-        WHERE	email = #{email}
+        WHERE	id = #{id}
     </select>
 </mapper>

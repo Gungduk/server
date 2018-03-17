@@ -19,9 +19,9 @@ public class QuestDao {
 		return dto;
 	}
 
-	public void successQuest (String email, String qstName){
+	public void successQuest (String id, String qstName){
 		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("email", email);
+		map.put("id", id);
 		map.put("qstName", qstName);
 		
 		sqlSession.update("quest.successQuest", map);

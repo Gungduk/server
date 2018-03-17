@@ -21,12 +21,12 @@ public class ModifyController {
 	ModifyDao modifyDao;
 	
 	@RequestMapping(value = "/api/v1/modifyInfo", method = RequestMethod.POST)
-	public @ResponseBody List<UserDto> modifyInfo(@RequestParam String email){
-		return modifyDao.info(email);
+	public @ResponseBody List<UserDto> modifyInfo(@RequestParam String id){
+		return modifyDao.info(id);
 	}
 	
 	@RequestMapping(value = "/api/v1/updateInfo", method = RequestMethod.POST)
-	public @ResponseBody void updateInfo(@RequestParam String email, String pw, String phoneNum){
-		modifyDao.updateInfo(email, pw, phoneNum);
+	public @ResponseBody void updateInfo(@RequestParam String id, String pw, String phoneNum){
+		modifyDao.updateInfo(id, pw, phoneNum);
 	}
 }

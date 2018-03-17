@@ -54,9 +54,9 @@ public class QuestCheckController {
 
 	@ApiOperation(value = "successQuest", notes = "해당 퀘스트의 yesOrNo 업데이트")
 	@RequestMapping(value = "/api/v1/successQuest", method = RequestMethod.POST)
-	public @ResponseBody void successQuest(@RequestParam String email, String qstName){
+	public @ResponseBody void successQuest(@RequestParam String id, String qstName){
 		
-		questDao.successQuest(email, qstName);
+		questDao.successQuest(id, qstName);
 	} 
 
 
