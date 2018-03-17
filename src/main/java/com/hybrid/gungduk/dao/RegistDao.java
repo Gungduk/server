@@ -14,9 +14,9 @@ public class RegistDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public int registerCheck(String email){ //�ߺ��Ǵ� ���̵� �ִ��� üũ
+	public int registerCheck(String id){ //�ߺ��Ǵ� ���̵� �ִ��� üũ
 	
-		String rs = sqlSession.selectOne("register.registCheck", email);
+		String rs = sqlSession.selectOne("register.registCheck", id);
 		
 		if(rs != null) return 0; //�̹� �����ϴ� ȸ��
 		else return 1; //���� ������ ȸ�� ���̵�
@@ -30,11 +30,11 @@ public class RegistDao {
 		return sqlSession.selectList("register.getQuest");
 	}
 	
-	public void insertQuest(String email){
+	public void insertQuest(String id){
 		List<String> qst = getQuest();
 		HashMap<String, String> map = new HashMap<String, String>();
 		Iterator<String> iterator = qst.iterator();
-		map.put("email", email);
+		map.put("id", id);
 		
 		while(iterator.hasNext()){
 			map.put("qstName", iterator.next());

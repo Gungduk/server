@@ -27,7 +27,7 @@ public class SessionTestController {
       else if(session.getAttribute("userLogInfo") == null) System.out.println("로그인 되어있지 않음");
       
       LoginDto logInfo = (LoginDto) session.getAttribute("userLogInfo"); 
-      String s = logInfo.getEmail();
+      String s = logInfo.getId();
       
       return s;
    }

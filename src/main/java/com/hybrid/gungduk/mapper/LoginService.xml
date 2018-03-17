@@ -3,8 +3,8 @@
 
 <mapper namespace="login">
     <select id="checkInfo" parameterType="com.hybrid.gungduk.dto.LoginDto" resultType="String">
-        SELECT 	email
+        SELECT 	id
         FROM 	user
-        WHERE	email = #{email} AND pw = #{pw}
+        WHERE	id = #{id} AND pw = #{pw}
     </select>
 </mapper>

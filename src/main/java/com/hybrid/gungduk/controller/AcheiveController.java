@@ -18,7 +18,7 @@ import io.swagger.annotations.Api;
 
 @CrossOrigin(origins = "*")
 
-@Api(value="AcheiveResponse", description="달성률 API", basePath="/api/v1/acheive")
+@Api(value="AcheiveResponse", description="�떖�꽦瑜� API", basePath="/api/v1/acheive")
 @RestController
 public class AcheiveController {
 
@@ -26,7 +26,7 @@ public class AcheiveController {
 	AcheiveDao acheiveDao;
 	
 	@RequestMapping(value = "/api/v1/acheive", method = RequestMethod.POST)
-	public @ResponseBody AcheiveDto acheive(@RequestParam String email){
+	public @ResponseBody AcheiveDto acheive(@RequestParam String id){
 		
 		AcheiveDto acheiveDto = null;
 		
@@ -35,10 +35,10 @@ public class AcheiveController {
 		double DSCount = acheiveDao.count("dsk");
 		double CDCount = acheiveDao.count("cdk");
 		
-		double GBYes = acheiveDao.yes(email, "kbk");
-		double CGYes = acheiveDao.yes(email, "ckk");
-		double DSYes = acheiveDao.yes(email, "dsk");
-		double CDYes = acheiveDao.yes(email, "cdk");
+		double GBYes = acheiveDao.yes(id, "kbk");
+		double CGYes = acheiveDao.yes(id, "ckk");
+		double DSYes = acheiveDao.yes(id, "dsk");
+		double CDYes = acheiveDao.yes(id, "cdk");
 		
 		double GBacheive = GBYes / GBCount * (double)100;
 		double CGacheive = CGYes / CGCount * (double)100;
@@ -48,7 +48,7 @@ public class AcheiveController {
 		return acheiveDao.putData(GBacheive, CGacheive, DSacheive, CDacheive);
 	}
 	
-	//완료된 퀘스트이름 리스트
+	//�셿猷뚮맂 �섏뒪�듃�씠由� 由ъ뒪�듃
 	 @RequestMapping(value = "/api/v1/successQst", method = RequestMethod.POST)
 	 public @ResponseBody List<String> acheive(@RequestParam String id, String plcName){
 	 	return acheiveDao.qstList(id, plcName);

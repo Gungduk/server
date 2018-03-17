@@ -11,7 +11,7 @@ public class LoginDao {
 	private SqlSession sqlSession;
 	
 	public String loginCheck(LoginDto logDtoReq){ 
-		//юод║го╢б х╦©Ьюл юж╢баЖ х╝юнго╟М email ╧щх╞
+		//О©╫О©╫д║О©╫о╢О©╫ х╦О©╫О©╫О©╫О©╫ О©╫ж╢О©╫О©╫О©╫ х╝О©╫О©╫О©╫о╟О©╫ id О©╫О©╫х╞
 		return sqlSession.selectOne("login.checkInfo", logDtoReq);
 	}
 }

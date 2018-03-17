@@ -3,15 +3,15 @@
 
 <mapper namespace="register">
     <select id="registCheck" parameterType="String" resultType="String">
-        SELECT 	email
+        SELECT 	id
         FROM 	user
-        WHERE	email = #{email}
+        WHERE	id = #{id}
     </select>
     
     <insert id="regist" parameterType="com.hybrid.gungduk.dto.UserDto">
         INSERT 
-        	INTO user(email, pw, phoneNum)
-        VALUES(#{email}, #{pw}, #{phoneNum})
+        	INTO user(id, pw, phoneNum)
+        VALUES(#{id}, #{pw}, #{phoneNum})
     </insert>
     
     <select id="getQuest" resultType="String">
@@ -21,7 +21,7 @@
     
     <insert id="insertQuest" parameterType="hashmap">
     	INSERT
-    		INTO	success (email, qstName, yesOrNo)
-		VALUES		(#{email}, #{qstName}, 0)
+    		INTO	success (id, qstName, yesOrNo)
+		VALUES		(#{id}, #{qstName}, 0)
     </insert>
 </mapper>
