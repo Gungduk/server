@@ -6,6 +6,12 @@
 	<select id="showQuest" parameterType="String" resultType="com.hybrid.gungduk.dto.QuestDto">
         SELECT 	*
         FROM 	quest
-        WHERE	qstName = #{qstName}
+        WHERE	qstNum = #{qstNum}
     </select>
+    
+    <update id="successQuest" parameterType="hashmap">
+		UPDATE success
+     	SET yesOrNo = 1
+     	WHERE email = #{email} AND qstNum = #{qstNum}
+	</update>
 </mapper>

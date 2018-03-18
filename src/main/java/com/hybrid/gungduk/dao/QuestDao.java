@@ -13,16 +13,16 @@ public class QuestDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public QuestDto show(String qstName){
+	public QuestDto show(String qstNum){
 		
-		QuestDto dto = sqlSession.selectOne("quest.showQuest", qstName);
+		QuestDto dto = sqlSession.selectOne("quest.showQuest", qstNum);
 		return dto;
 	}
 
-	public void successQuest (String id, String qstName){
+	public void successQuest (String id, String qstNum){
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("id", id);
-		map.put("qstName", qstName);
+		map.put("qstNum", qstNum);
 		
 		sqlSession.update("quest.successQuest", map);
 	}

@@ -46,17 +46,17 @@ public class QuestCheckController {
 	
 	@ApiOperation(value = "showQuest", notes = "해당 퀘스트의 정보 띄워주기")
 	@RequestMapping(value = "/api/v1/quest", method = RequestMethod.POST)
-	public @ResponseBody QuestDto showQuest(@RequestParam String qstName){
+	public @ResponseBody QuestDto showQuest(@RequestParam String qstNum){
 		
-		QuestDto rs = questDao.show(qstName);
+		QuestDto rs = questDao.show(qstNum);
 		return rs;
 	} 
 
 	@ApiOperation(value = "successQuest", notes = "해당 퀘스트의 yesOrNo 업데이트")
 	@RequestMapping(value = "/api/v1/successQuest", method = RequestMethod.POST)
-	public @ResponseBody void successQuest(@RequestParam String id, String qstName){
+	public @ResponseBody void successQuest(@RequestParam String id, String qstNum){
 		
-		questDao.successQuest(id, qstName);
+		questDao.successQuest(id, qstNum);
 	} 
 
 
