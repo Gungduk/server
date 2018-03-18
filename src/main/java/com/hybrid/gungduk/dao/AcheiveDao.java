@@ -17,9 +17,9 @@ public class AcheiveDao {
 		return sqlSession.selectOne("acheive.countAll", plcName);
 	}
 	
-	public double yes(String email, String plcName){
+	public double yes(String id, String plcName){
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("email", email);
+		map.put("id", id);
 		map.put("plcName", plcName);
 		return sqlSession.selectOne("acheive.countYes", map);
 	}

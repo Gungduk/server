@@ -1,20 +1,20 @@
 package com.hybrid.gungduk.dto;
 
 public class SuccDto {
-	String email;
+	String id;
 	String qstName;
 	String yesOrNo;
 	
-	public SuccDto(String email, String qstName) {
+	public SuccDto(String id, String qstName) {
 		super();
-		this.email = email;
+		this.id = id;
 		this.qstName = qstName;
 	}
-	public String getEmail() {
-		return email;
+	public String getId() {
+		return id;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getQstName() {
 		return qstName;
