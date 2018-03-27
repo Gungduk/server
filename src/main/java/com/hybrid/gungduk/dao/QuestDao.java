@@ -19,11 +19,19 @@ public class QuestDao {
 		return dto;
 	}
 
-	public void successQuest (String id, String qstNum){
+	public void finishQuest (String id, String qstName){
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("id", id);
-		map.put("qstNum", qstNum);
+		map.put("qstName", qstName);
 		
-		sqlSession.update("quest.successQuest", map);
+		sqlSession.update("quest.finishQuest", map);
+	}
+	
+	public QuestDto rangeQuest (int latitude, int longitude){
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("latitude", latitude);
+		map.put("longitude", longitude);
+		
+		return sqlSession.selectOne("quest.rangeQuest", map);
 	}
 }

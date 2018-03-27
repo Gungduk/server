@@ -18,7 +18,7 @@ import io.swagger.annotations.Api;
 
 @CrossOrigin(origins = "*")
 
-@Api(value="AcheiveResponse", description="�떖�꽦瑜� API", basePath="/api/v1/acheive")
+@Api(value="AcheiveResponse", description="달성률 API", basePath="/api/v1/acheive")
 @RestController
 public class AcheiveController {
 
@@ -28,24 +28,29 @@ public class AcheiveController {
 	@RequestMapping(value = "/api/v1/acheive", method = RequestMethod.POST)
 	public @ResponseBody AcheiveDto acheive(@RequestParam String id){
 		
-		AcheiveDto acheiveDto = null;
+//		AcheiveDto acheiveDto = null;
 		
 		double GBCount = acheiveDao.count("kbk");
 		double CGCount = acheiveDao.count("ckk");
 		double DSCount = acheiveDao.count("dsk");
 		double CDCount = acheiveDao.count("cdk");
 		
-		double GBYes = acheiveDao.yes(id, "kbk");
 		double CGYes = acheiveDao.yes(id, "ckk");
 		double DSYes = acheiveDao.yes(id, "dsk");
 		double CDYes = acheiveDao.yes(id, "cdk");
+		double GBYes = acheiveDao.yes(id, "kbk");
 		
 		double GBacheive = GBYes / GBCount * (double)100;
 		double CGacheive = CGYes / CGCount * (double)100;
 		double DSacheive = DSYes / DSCount * (double)100;
 		double CDacheive = CDYes / CDCount * (double)100;
 		
-		return acheiveDao.putData(GBacheive, CGacheive, DSacheive, CDacheive);
+		int gb = (int)GBacheive;
+		int cg = (int)CGacheive;
+		int ds = (int)DSacheive;
+		int cd = (int)CDacheive;
+		
+		return acheiveDao.putData(gb, cg, ds, cd);
 	}
 	
 	//�셿猷뚮맂 �섏뒪�듃�씠由� 由ъ뒪�듃

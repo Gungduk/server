@@ -27,6 +27,11 @@ public class RegistController {
 	public @ResponseBody int regist(@RequestBody UserDto regDtoReq){
 
 		String id = regDtoReq.getId();
+		String pw = regDtoReq.getPw();
+		String ph = regDtoReq.getPhoneNum();
+		
+		if(id == "" || pw == "" || ph == "")
+			return 2;
 		
 		int rs = regDao.registerCheck(id);
 		if(rs == 0){ 

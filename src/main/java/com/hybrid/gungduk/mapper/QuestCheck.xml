@@ -9,9 +9,23 @@
         WHERE	qstNum = #{qstNum}
     </select>
     
-    <update id="successQuest" parameterType="hashmap">
+    <update id="finishQuest" parameterType="hashmap">
 		UPDATE success
      	SET yesOrNo = 1
-     	WHERE email = #{email} AND qstNum = #{qstNum}
+     	WHERE id = #{id} AND qstName = #{qstName}
 	</update>
+	
+	<!-- 반경 30m 이내의 퀘스트 찾기 -->
+	<select id="rangeQuest" parameterType="hashmap" resultType="com.hybrid.gungduk.dto.QuestDto">
+		SELECT *,
+		(6371*acos(cos(radians(#{latitude}))*cos(radians(latitude))*cos(radians(longitude)
+		-radians(#{longitude}))+sin(radians(#{latitude}))*sin(radians(latitude))))
+		AS distance
+		FROM quest
+		<![CDATA[
+		HAVING distance <= 0.03
++		]]>
+		ORDER BY distance 
+		LIMIT 0,300
+	</select>
 </mapper>

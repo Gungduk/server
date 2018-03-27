@@ -1,21 +1,16 @@
 package com.hybrid.gungduk.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.socket.config.annotation.EnableWebSocket;
 
 import com.hybrid.gungduk.dao.QuestDao;
-import com.hybrid.gungduk.dto.LotateDto;
 import com.hybrid.gungduk.dto.QuestDto;
-import com.hybrid.gungduk.dto.SuccDto;
-import com.hybrid.gungduk.dto.UserDto;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -45,18 +40,18 @@ public class QuestCheckController {
 //	} 
 	
 	@ApiOperation(value = "showQuest", notes = "해당 퀘스트의 정보 띄워주기")
-	@RequestMapping(value = "/api/v1/quest", method = RequestMethod.POST)
+	@RequestMapping(value = "/api/v1/showQuest", method = RequestMethod.GET)
 	public @ResponseBody QuestDto showQuest(@RequestParam String qstNum){
 		
 		QuestDto rs = questDao.show(qstNum);
 		return rs;
 	} 
 
-	@ApiOperation(value = "successQuest", notes = "해당 퀘스트의 yesOrNo 업데이트")
-	@RequestMapping(value = "/api/v1/successQuest", method = RequestMethod.POST)
-	public @ResponseBody void successQuest(@RequestParam String id, String qstNum){
+	@ApiOperation(value = "finishQuest", notes = "해당 퀘스트의 yesOrNo 업데이트")
+	@RequestMapping(value = "/api/v1/finishQuest", method = RequestMethod.POST)
+	public @ResponseBody void finishQuest(@RequestParam String id, String qstName){
 		
-		questDao.successQuest(id, qstNum);
+		questDao.finishQuest(id, qstName);
 	} 
 
 

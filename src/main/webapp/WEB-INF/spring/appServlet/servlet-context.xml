@@ -5,7 +5,9 @@
    xmlns:context="http://www.springframework.org/schema/context"  
    xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd  
       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
-      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">  
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+      http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket.xsd"
+   xmlns:websocket="http://www.springframework.org/schema/websocket">  
   
    <!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->  
      
@@ -42,8 +44,13 @@
    <!-- swagger -->  
    <beans:bean id="swagger2Config"   
     class="springfox.documentation.swagger2.configuration.Swagger2DocumentationConfiguration"></beans:bean>  
-      
-    <default-servlet-handler />  
+   
+   <!-- WebSocket -->
+   <websocket:handlers>
+      <websocket:mapping path="/websocket/echo.do" handler="myHandler"/>
+   </websocket:handlers>
+    
+   <default-servlet-handler />  
    <resources location="classpath:/META-INF/resources/" mapping="swagger-ui.html"></resources>  
    <resources location="classpath:/META-INF/resources/webjars/" mapping="/webjars/**"></resources>  
   
@@ -58,5 +65,6 @@
    <beans:bean name="QuestDao" class="com.hybrid.gungduk.dao.QuestDao" />
    <beans:bean name="AcheiveDao" class="com.hybrid.gungduk.dao.AcheiveDao" />
    <beans:bean name="AcheiveDto" class="com.hybrid.gungduk.dto.AcheiveDto" />
+   <beans:bean name="myHandler" class="com.hybrid.gungduk.handler.SocketHandler"/>
 
 </beans:beans>  

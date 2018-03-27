@@ -7,117 +7,86 @@ public class QuestDto {
 	String qstName;
 	String plcName;
 	double latitude;
-	double logitude;
-	Clob info;
-	Clob qst;
-	String answer;
+	double longitude;
+	String info;
+	String qst;
+	int answer;
 	String qstEx1;
 	String qstEx2;
-	String ImgUrl;
-	
-	public QuestDto(int qstNum, String qstName, String plcName, double latitude, double logitude, Clob info, Clob qst,
-			String answer, String qstEx1, String qstEx2, String imgUrl) {
-		super();
-		this.qstNum = qstNum;
-		this.qstName = qstName;
-		this.plcName = plcName;
-		this.latitude = latitude;
-		this.logitude = logitude;
-		this.info = info;
-		this.qst = qst;
-		this.answer = answer;
-		this.qstEx1 = qstEx1;
-		this.qstEx2 = qstEx2;
-		ImgUrl = imgUrl;
-	}
-
+	String qstEx3;
+	String imgUrl;
 	public int getQstNum() {
 		return qstNum;
 	}
-
 	public void setQstNum(int qstNum) {
 		this.qstNum = qstNum;
 	}
-
 	public String getQstName() {
 		return qstName;
 	}
-
 	public void setQstName(String qstName) {
 		this.qstName = qstName;
 	}
-
 	public String getPlcName() {
 		return plcName;
 	}
-
 	public void setPlcName(String plcName) {
 		this.plcName = plcName;
 	}
-
 	public double getLatitude() {
 		return latitude;
 	}
-
 	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
-
-	public double getLogitude() {
-		return logitude;
+	public double getLongitude() {
+		return longitude;
 	}
-
-	public void setLogitude(double logitude) {
-		this.logitude = logitude;
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
 	}
-
-	public Clob getInfo() {
+	public String getInfo() {
 		return info;
 	}
-
-	public void setInfo(Clob info) {
+	public void setInfo(String info) {
 		this.info = info;
 	}
-
-	public Clob getQst() {
+	public String getQst() {
 		return qst;
 	}
-
-	public void setQst(Clob qst) {
+	public void setQst(String qst) {
 		this.qst = qst;
 	}
-
-	public String getAnswer() {
+	public int getAnswer() {
 		return answer;
 	}
-
-	public void setAnswer(String answer) {
+	public void setAnswer(int answer) {
 		this.answer = answer;
 	}
-
 	public String getQstEx1() {
 		return qstEx1;
 	}
-
 	public void setQstEx1(String qstEx1) {
 		this.qstEx1 = qstEx1;
 	}
-
 	public String getQstEx2() {
 		return qstEx2;
 	}
-
 	public void setQstEx2(String qstEx2) {
 		this.qstEx2 = qstEx2;
 	}
-
+	public String getQstEx3() {
+		return qstEx3;
+	}
+	public void setQstEx3(String qstEx3) {
+		this.qstEx3 = qstEx3;
+	}
 	public String getImgUrl() {
-		return ImgUrl;
+		return imgUrl;
 	}
-
 	public void setImgUrl(String imgUrl) {
-		ImgUrl = imgUrl;
+		this.imgUrl = imgUrl;
 	}
 	
-	
+
 }

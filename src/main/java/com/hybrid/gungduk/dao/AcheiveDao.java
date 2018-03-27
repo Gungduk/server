@@ -24,7 +24,7 @@ public class AcheiveDao {
 		return sqlSession.selectOne("acheive.countYes", map);
 	}
 	
-	public AcheiveDto putData(double GBacheive, double CGacheive, double DSacheive, double CDacheive){
+	public AcheiveDto putData(int GBacheive, int CGacheive, int DSacheive, int CDacheive){
 		AcheiveDto acheiveDto = new AcheiveDto();
 		
 		acheiveDto.setGyeongbok(GBacheive);
