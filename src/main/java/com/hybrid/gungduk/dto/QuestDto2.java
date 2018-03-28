@@ -1,6 +1,6 @@
 package com.hybrid.gungduk.dto;
 
-public class QuestDto {
+public class QuestDto2 {
 	int qstNum;
 	String qstName;
 	String plcName;
@@ -87,7 +87,7 @@ public class QuestDto {
 	}
 	@Override
 	public String toString() {
-		return "{\"qstNum\":" + qstNum + ", \"qstName\": \"" + qstName + "\", \"plcName\": \"" + plcName + "\", \"latitude\":" + latitude
+		return "{\"qstNum\":" + qstNum + ", \"qstName\": \"" + qstName + "\", \"plcName\": \"" + plcName + "\", \"latitude\"" + latitude
 				+ ", \"longitude\":" + longitude + ", \"info\": \"" + info + "\", \"qst\":" + qst + "\", \"answer\":" + answer + ", \"qstEx1\": \""
 				+ qstEx1 + "\", \"qstEx2\": \"" + qstEx2 + "\", \"qstEx3\": \"" + qstEx3 + "\", \"imgUrl\": \"" + imgUrl + "\" }";
 	}

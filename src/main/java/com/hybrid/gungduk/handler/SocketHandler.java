@@ -1,5 +1,6 @@
 package com.hybrid.gungduk.handler;
 
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,10 +10,14 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
+import org.springframework.web.socket.WebSocketMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 import com.hybrid.gungduk.dao.QuestDao;
+import com.hybrid.gungduk.dto.QuestDto;
+
+import springfox.documentation.spring.web.json.Json;
 
 
 public class SocketHandler extends TextWebSocketHandler implements InitializingBean{
@@ -33,16 +38,16 @@ public class SocketHandler extends TextWebSocketHandler implements InitializingB
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
     	JSONParser jsonParser = new JSONParser();
 		JSONObject jsonObject = (JSONObject) jsonParser.parse(message.getPayload());
-		int latitude = (int) jsonObject.get("latitude");
-		int longitude = (int) jsonObject.get("longitude");
-		
-		//TextMessage msg = questDao.rangeQuest(latitude, longitude);
-        if (session.isOpen()){
-        	try{
-        			session.sendMessage(msg);
-        	}catch (Exception ignored){
-        			System.out.println("fail to send message!");
-        	}
+		double latitude = Double.parseDouble((String) jsonObject.get("latitude"));
+		double longitude = Double.parseDouble((String) jsonObject.get("longitude"));
+		String id = (String) jsonObject.get("id");
+		String json = questDao.rangeQuest(latitude, longitude, id).toString();
+        if (json.isEmpty()){
+        	session.sendMessage(new TextMessage("error"));
+        	System.out.println("fail to send message!");
+        }else{
+        	session.sendMessage(new TextMessage(json));
+        	System.out.println("send message!");
         }
     }
     
@@ -55,6 +60,5 @@ public class SocketHandler extends TextWebSocketHandler implements InitializingB
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		// TODO Auto-generated method stub
-		
 	}
 }

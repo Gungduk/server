@@ -15,17 +15,18 @@
      	WHERE id = #{id} AND qstName = #{qstName}
 	</update>
 	
-	<!-- 반경 30m 이내의 퀘스트 찾기 -->
-	<select id="rangeQuest" parameterType="hashmap" resultType="com.hybrid.gungduk.dto.QuestDto">
+	<!-- 해당 유저의 현재위치에서 반경 30m 이내의 yesOrNo=0인 퀘스트 찾기 -->
+	<select id="rangeQuest" parameterType="com.hybrid.gungduk.dto.RangeQuestDto" resultType="com.hybrid.gungduk.dto.QuestDto">
 		SELECT *,
 		(6371*acos(cos(radians(#{latitude}))*cos(radians(latitude))*cos(radians(longitude)
 		-radians(#{longitude}))+sin(radians(#{latitude}))*sin(radians(latitude))))
 		AS distance
-		FROM quest
+		FROM quest NATURAL JOIN success
+		WHERE id = #{id} AND yesOrNo = 0
 		<![CDATA[
 		HAVING distance <= 0.03
-+		]]>
-		ORDER BY distance 
+		]]>
+		ORDER BY distance
 		LIMIT 0,300
 	</select>
 </mapper>

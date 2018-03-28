@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.hybrid.gungduk.dto.QuestDto;
+import com.hybrid.gungduk.dto.RangeQuestDto;
 
 public class QuestDao {
 
@@ -27,11 +28,9 @@ public class QuestDao {
 		sqlSession.update("quest.finishQuest", map);
 	}
 	
-	public QuestDto rangeQuest (int latitude, int longitude){
-		HashMap<String, Integer> map = new HashMap<String, Integer>();
-		map.put("latitude", latitude);
-		map.put("longitude", longitude);
+	public QuestDto rangeQuest (double latitude, double longitude, String id){
+		RangeQuestDto dto = new RangeQuestDto(latitude, longitude, id);
 		
-		return sqlSession.selectOne("quest.rangeQuest", map);
+		return sqlSession.selectOne("quest.rangeQuest", dto);
 	}
 }

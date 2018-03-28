@@ -112,12 +112,16 @@
     		<artifactId>jackson-databind</artifactId>
     		<version>2.6.4</version>
 		</dependency>
-	
 		<dependency>
-			<groupId>com.googlecode.json-simple</groupId>
-			<artifactId>json-simple</artifactId>
-			<version>1.1</version>
-  		</dependency>
+    		<groupId>com.fasterxml.jackson.core</groupId>
+    		<artifactId>jackson-core</artifactId>
+    		<version>2.6.4</version>
+		</dependency>
+		<dependency>
+    		<groupId>com.fasterxml.jackson.core</groupId>
+    		<artifactId>jackson-annotations</artifactId>
+    		<version>2.6.4</version>
+		</dependency>
 
 		<!-- Test -->
 		<dependency>
@@ -185,6 +189,11 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
             <version>3.2.3.RELEASE</version>
+        </dependency>
+        <dependency>
+        	<groupId>com.googlecode.json-simple</groupId>
+        	<artifactId>json-simple</artifactId>
+        	<version>1.1</version>
         </dependency>
 	</dependencies>
     <build>
