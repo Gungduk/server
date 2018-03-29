@@ -29,4 +29,22 @@
 		ORDER BY distance
 		LIMIT 0,300
 	</select>
+	
+	<select id="status" parameterType="String" resultType="Integer">
+        SELECT 	COUNT(qstName) AS cnt
+        FROM 	success
+        WHERE	id = #{id} AND status = 1
+    </select>
+    
+    <update id="quitQuest" parameterType="hashmap">
+		UPDATE success
+     	SET status = 0
+     	WHERE id = #{id} AND qstName = #{qstName}
+	</update>
+	
+	<update id="changeStatus" parameterType="hashmap">
+		UPDATE success
+     	SET status = 1
+     	WHERE id = #{id} AND qstName = #{qstName}
+	</update>
 </mapper>

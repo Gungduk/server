@@ -13,6 +13,7 @@ import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 import com.hybrid.gungduk.dao.QuestDao;
+import com.hybrid.gungduk.dto.QuestDto;
 
 
 public class SocketHandler extends TextWebSocketHandler implements InitializingBean{
@@ -36,7 +37,17 @@ public class SocketHandler extends TextWebSocketHandler implements InitializingB
 		double latitude = Double.parseDouble((String) jsonObject.get("latitude"));
 		double longitude = Double.parseDouble((String) jsonObject.get("longitude"));
 		String id = (String) jsonObject.get("id");
-		String json = questDao.rangeQuest(latitude, longitude, id).toString();
+		String json;
+		
+		int status = questDao.statusCheck(id); //status가 1인 것의 개수
+		if(status == 0){
+			QuestDto dto = questDao.rangeQuest(latitude, longitude, id);
+//			json = questDao.rangeQuest(latitude, longitude, id).toString();//안한퀘스트&30m이내인 퀘스트 정보 보냄
+			json = dto.toString();
+		    questDao.changeStatus(dto, id);//status 1로 하기
+		}else
+			json = "";
+		
         if (json.isEmpty()){
         	session.sendMessage(new TextMessage("error"));
         	System.out.println("fail to send message!");

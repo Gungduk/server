@@ -33,4 +33,24 @@ public class QuestDao {
 		
 		return sqlSession.selectOne("quest.rangeQuest", dto);
 	}
+	
+	public int statusCheck(String id){
+		return sqlSession.selectOne("quest.status", id);
+	}
+	
+	public void quitQuest (String id, String qstName){
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("id", id);
+		map.put("qstName", qstName);
+		
+		sqlSession.update("quest.quitQuest", map);
+	}
+	
+	public void changeStatus (QuestDto questDto, String id){
+		String qstName = questDto.getQstName();
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("id", id);
+		map.put("qstName", qstName);
+		sqlSession.update("quest.changeStatus", map);
+	}
 }
