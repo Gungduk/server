@@ -23,22 +23,6 @@ public class QuestCheckController {
 	@Autowired
 	QuestDao questDao;
 	
-//	@ApiOperation(value = "showQuest", notes = "해당 퀘스트의 정보 띄워주기")
-//	@RequestMapping(value = "/api/v1/quest", method = RequestMethod.POST)
-//	public @ResponseBody QuestDto showQuest(@RequestBody LotateDto lotateDtoReq){
-//		
-//		Double latitude = lotateDtoReq.getLatitude();
-//		Double logitude = lotateDtoReq.getLogitude();
-//		
-//		lotateDtoReq.setMaxLati(latitude+0.00006);
-//		lotateDtoReq.setMaxLogi(logitude+0.00006);
-//		lotateDtoReq.setMinLati(latitude-0.00006);
-//		lotateDtoReq.setMinLogi(logitude-0.00006);
-//		
-//		QuestDto rs = questDao.show(lotateDtoReq);
-//		return rs;
-//	} 
-	
 	@ApiOperation(value = "showQuest", notes = "해당 퀘스트의 정보 띄워주기")
 	@RequestMapping(value = "/api/v1/showQuest", method = RequestMethod.GET)
 	public @ResponseBody QuestDto showQuest(@RequestParam String qstNum){
