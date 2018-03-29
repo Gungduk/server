@@ -308,7 +308,7 @@
 			});
 
 			//var wsUri = "ws://13.124.63.236:8080/gungduk/websocket/echo.do";
-			var wsUri = "ws://localhost:8080/gungduk/websocket/echo.do";
+			var wsUri = "ws://localhost:8081/gungduk/websocket/echo.do";
 			
 			var message = "Hello";
 
@@ -419,7 +419,7 @@
 
 			$.ajax ({
 
-				url: 'http://13.124.63.236:8080/gungduk/api/v1/finishQuest?id='+userID+'&qstName='+arr_qstname[0],
+				url: 'http://13.124.63.236:8081/gungduk/api/v1/finishQuest?id='+userID+'&qstName='+arr_qstname[0],
 				type: 'POST',
 
 				success: function(data) {

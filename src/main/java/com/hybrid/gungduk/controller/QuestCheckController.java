@@ -54,7 +54,12 @@ public class QuestCheckController {
 		questDao.finishQuest(id, qstName);
 	} 
 
-
+	@ApiOperation(value = "quitQuest", notes = "퀘스트 팝업 창을 껐을 때 실행된다. status를 0으로 바꾸기")
+	@RequestMapping(value = "/api/v1/quitQuest", method = RequestMethod.GET)
+	public @ResponseBody void status(@RequestParam String id, String qstName){
+		
+		questDao.quitQuest(id, qstName);
+	} 
 } 
 		
 		
