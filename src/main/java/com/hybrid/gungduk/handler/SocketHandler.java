@@ -3,12 +3,14 @@ package com.hybrid.gungduk.handler;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
+import org.springframework.web.socket.WebSocketMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
@@ -34,22 +36,31 @@ public class SocketHandler extends TextWebSocketHandler implements InitializingB
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
     	JSONParser jsonParser = new JSONParser();
 		JSONObject jsonObject = (JSONObject) jsonParser.parse(message.getPayload());
-		double latitude = Double.parseDouble((String) jsonObject.get("latitude"));
-		double longitude = Double.parseDouble((String) jsonObject.get("longitude"));
-		String id = (String) jsonObject.get("id");
+		double latitude = (double) jsonObject.get("latitude");
+		double longitude = (double) jsonObject.get("longitude");
+		String id = (String) jsonObject.get("id");		
 		String json;
+		JSONObject obj = new JSONObject();
 		
 		int status = questDao.statusCheck(id); //status가 1인 것의 개수
 		if(status == 0){
 			QuestDto dto = questDao.rangeQuest(latitude, longitude, id);
-//			json = questDao.rangeQuest(latitude, longitude, id).toString();//안한퀘스트&30m이내인 퀘스트 정보 보냄
-			json = dto.toString();
+			
+			obj.put("qstName", dto.getQstName());
+			obj.put("info", dto.getInfo());
+			obj.put("qst", dto.getQst());
+			obj.put("answer", dto.getAnswer());
+			obj.put("qstEx1", dto.getQstEx1());
+			obj.put("qstEx2", dto.getQstEx2());
+			obj.put("qstEx3", dto.getQstEx3());
+			obj.put("imgUrl", dto.getImgUrl());
+			json = obj.toJSONString();
+			
 		    questDao.changeStatus(dto, id);//status 1로 하기
 		}else
 			json = "";
 		
         if (json.isEmpty()){
-        	session.sendMessage(new TextMessage("error"));
         	System.out.println("fail to send message!");
         }else{
         	session.sendMessage(new TextMessage(json));

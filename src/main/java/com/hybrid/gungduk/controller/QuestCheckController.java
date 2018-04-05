@@ -36,6 +36,7 @@ public class QuestCheckController {
 	public @ResponseBody void finishQuest(@RequestParam String id, String qstName){
 		
 		questDao.finishQuest(id, qstName);
+		questDao.quitQuest(id, qstName);
 	} 
 
 	@ApiOperation(value = "quitQuest", notes = "퀘스트 팝업 창을 껐을 때 실행된다. status를 0으로 바꾸기")

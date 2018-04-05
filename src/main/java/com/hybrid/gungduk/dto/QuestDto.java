@@ -1,5 +1,7 @@
 package com.hybrid.gungduk.dto;
 
+import org.json.simple.JSONObject;
+
 public class QuestDto {
 	int qstNum;
 	String qstName;
@@ -91,7 +93,5 @@ public class QuestDto {
 				+ ", \"longitude\":" + longitude + ", \"info\": \"" + info + "\", \"qst\":" + qst + "\", \"answer\":" + answer + ", \"qstEx1\": \""
 				+ qstEx1 + "\", \"qstEx2\": \"" + qstEx2 + "\", \"qstEx3\": \"" + qstEx3 + "\", \"imgUrl\": \"" + imgUrl + "\" }";
 	}
-	
-	
 
 }

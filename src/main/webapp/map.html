@@ -1,462 +1,452 @@
 <!DOCTYPE html>
 <html lang="eng">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, inital-scale=1, shrink-to-fit=no">
-	<title>step2_Gyeongbok</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, inital-scale=1, shrink-to-fit=no">
+   <title>step2_Gyeongbok</title>
 
-	<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=TTSmvAuWm8qgc0ZZ8jYp&submodules=geocoder"></script>
+   <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=TTSmvAuWm8qgc0ZZ8jYp&submodules=geocoder"></script>
 
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" href="css/styles.css">
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-	<br>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col text-center">
-				<h4 class="mp-title-space font-weight-bold">궁덕궁덕</h4>
-			</div>
-		</div>
-		<br>
-		<div class="row">
-			<div class="col">
-				<h6 class="text-center font-weight-bold"><a href="mypage.html" class="text-dark">마이페이지</a></h6>
-			</div>
-			<div class="col">
-				<h6 class="text-center font-weight-bold"><a href="main.html" class="text-dark">HOME</a></h6>
-			</div>
-			<div class="col">
-				<h6 class="text-center font-weight-bold"><a href="step1.html" class="text-dark">고궁 안내</a></h6><hr>
-			</div>
-		</div>
-		<br>
-		<div class="row">
-			<div class="col text-center">
-				<a href="step1.html" class="text-dark"><i class="material-icons">keyboard_arrow_left</i></a>
-			</div>
-			<div class="col text-center">
-				<h5>STEP 2</h5>
-			</div>
-			<div class="col"></div>
-		</div>
+   <br>
+   <div class="container-fluid">
+      <div class="row">
+         <div class="col text-center">
+            <h4 class="mp-title-space font-weight-bold">궁덕궁덕</h4>
+         </div>
+      </div>
+      <br>
+      <div class="row">
+         <div class="col">
+            <h6 class="text-center font-weight-bold"><a href="mypage.html" class="text-dark">마이페이지</a></h6>
+         </div>
+         <div class="col">
+            <h6 class="text-center font-weight-bold"><a href="main.html" class="text-dark">HOME</a></h6>
+         </div>
+         <div class="col">
+            <h6 class="text-center font-weight-bold"><a href="step1.html" class="text-dark">고궁 안내</a></h6><hr>
+         </div>
+      </div>
+      <br>
+      <div class="row">
+         <div class="col text-center">
+            <a href="step1.html" class="text-dark"><i class="material-icons">keyboard_arrow_left</i></a>
+         </div>
+         <div class="col text-center">
+            <h5>STEP 2</h5>
+         </div>
+         <div class="col"></div>
+      </div>
 
-		<div class="row">
-			<div class="col" id="map" style="width: 100%; height: 300px;"></div>
-		</div>
+      <div class="row">
+         <div class="col" id="map" style="width: 100%; height: 300px;"></div>
+      </div>
 
-		<div class="row text-center" style="margin-top: 30px">
-			<div class="col">
-				<button type="button" class="btn btn-info btn-block" onclick="loopData()">위치 확인</button>
-			</div>
-			<div class="col">
-				<button type="button" class="btn btn-info btn-block" onclick="stopData()">위치 중지</button>
-			</div>
-		</div>
+      <div class="row text-center" style="margin-top: 30px">
+         <div class="col">
+            <button type="button" class="btn btn-info btn-block" onclick="loopData()">위치 확인</button>
+         </div>
+         <div class="col">
+            <button type="button" class="btn btn-info btn-block" onclick="stopData()">위치 중지</button>
+         </div>
+      </div>
 
-		<div class="row" style="margin-top: 10px">
-			<div class="col"></div>
-			<div class="col-8">
-				<a role="button" href="step1.html" class="btn btn-danger btn-block">안내종료</a>
-			</div>
-			<div class="col"></div>
-		</div>
+      <div class="row" style="margin-top: 10px">
+         <div class="col"></div>
+         <div class="col-8">
+            <a role="button" href="step1.html" class="btn btn-danger btn-block">안내종료</a>
+         </div>
+         <div class="col"></div>
+      </div>
 
-		<div class="row">
-			<div class="col" id="console" style="width: 500px; border: 5px; font-size: 16px"></div>
-		</div>
+      <div class="row">
+         <div class="col" id="console" style="width: 500px; border: 5px; font-size: 16px"></div>
+      </div>
 
-		<!-- Modal_SpecificpointPopup-->
-		<div class="modal fade" id="ModalPopup" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true" style="margin-top: 100px">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<div class="col"></div>
-						<div class="col-9 text-center">
-							<h5 class="modal-title text-center" id="ModalLabel_sp">Mdoal Specific title</h5>
-						</div>
-						<div class="col">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-					</div>
-					<div class="modal-body text-center">
-						<div class="col">
-							<img src="http://via.placeholder.com/640x320" class="img-fluid" style="margin-bottom: 20px" id="ModalBodyImg_sp">
-						</div>
-						<div class="col" id="ModalBody_sp">
-							Modal palace body Royal
-						</div>
-					</div>
+      <!-- Modal_SpecificpointPopup-->
+      <div class="modal fade" id="ModalPopup" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true" data-backdrop="static" style="margin-top: 100px">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <div class="col"></div>
+                  <div class="col-9 text-center">
+                     <h5 class="modal-title text-center" id="ModalLabel_sp">Mdoal Specific title</h5>
+                  </div>
+                  <div class="col">
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="sendquitQst()">
+                        <span aria-hidden="true">&times;</span>
+                     </button>
+                  </div>
+               </div>
+               <div class="modal-body text-center">
+                  <div class="col">
+                     <img src="http://via.placeholder.com/640x320" class="img-fluid" style="margin-bottom: 20px" id="ModalBodyImg_sp">
+                  </div>
+                  <div class="col" id="ModalBody_sp">
+                     Modal palace body Royal
+                  </div>
+               </div>
 
-					<!--Trigger_QuestPopup-->
-					<div class="modal-footer">
-						<div class="col"><button type="button" class="btn btn-danger btn-block" data-dismiss="modal" data-toggle="modal" data-target="#ModalQuest">퀘스트 시작하기</button></div>
-					</div>
-				</div>
-			</div>
-		</div>
+               <!--Trigger_QuestPopup-->
+               <div class="modal-footer">
+                  <div class="col"><button type="button" class="btn btn-danger btn-block" data-dismiss="modal" data-toggle="modal" data-target="#ModalQuest">퀘스트 시작하기</button></div>
+               </div>
+            </div>
+         </div>
+      </div>
 
-		<!--Modal_QuestPopup-->
-		<div class="modal fade" id="ModalQuest" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"  style="margin-top: 100px">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<div class="col"></div>
-						<div class="col-9 text-center">
-							<h5 class="modal-title text-center" id="ModalLabel_qp">Mdoal Quest title</h5>
-						</div>
-						<div class="col">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-					</div>
-					<div class="modal-body text-center">
-						<div class="col">
-							<img src="http://via.placeholder.com/640x320" class="img-fluid" style="margin-bottom: 20px" id="ModalBodyImg_qp">
-						</div>
-						<div class="col" id="ModalBody_qp">
-							Royal palace body Modal
-						</div>
-						<div class="col" style="margin-top: 20px">
-							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="inlineRadioOptions" value="1">
-								<label class="form-check-label" for="inlineRadio1" id="inlineRadio1"></label>
-							</div>
-							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="inlineRadioOptions" value="2">
-								<label class="form-check-label" for="inlineRadio2" id="inlineRadio2"></label>
-							</div>
-							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="inlineRadioOptions" value="3">
-								<label class="form-check-label" for="inlineRadio3" id="inlineRadio3"></label>
-							</div>
-						</div>
-					</div>
+      <!--Modal_QuestPopup-->
+      <div class="modal fade" id="ModalQuest" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" style="margin-top: 100px">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <div class="col"></div>
+                  <div class="col-9 text-center">
+                     <h5 class="modal-title text-center" id="ModalLabel_qp">Mdoal Quest title</h5>
+                  </div>
+                  <div class="col">
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="sendquitQst()">
+                        <span aria-hidden="true">&times;</span>
+                     </button>
+                  </div>
+               </div>
+               <div class="modal-body text-center">
+                  <div class="col">
+                     <img src="http://via.placeholder.com/640x320" class="img-fluid" style="margin-bottom: 20px" id="ModalBodyImg_qp">
+                  </div>
+                  <div class="col" id="ModalBody_qp">
+                     Royal palace body Modal
+                  </div>
+                  <div class="col" style="margin-top: 20px">
+                     <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" value="1">
+                        <label class="form-check-label" for="inlineRadio1" id="inlineRadio1"></label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" value="2">
+                        <label class="form-check-label" for="inlineRadio2" id="inlineRadio2"></label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" value="3">
+                        <label class="form-check-label" for="inlineRadio3" id="inlineRadio3"></label>
+                     </div>
+                  </div>
+               </div>
 
-					<!--Trigger_Incorrect Or Correct Popup-->
-					<div class="modal-footer">
-						<div class="col"><button type="button" class="btn btn-danger btn-block" data-dismiss="modal" data-toggle="modal" id="selecter_incorOrcor" onclick="compare()">제출하기</button></div>
-					</div>
-				</div>
-			</div>
-		</div>
+               <!--Trigger_Incorrect Or Correct Popup-->
+               <div class="modal-footer">
+                  <div class="col"><button type="button" class="btn btn-danger btn-block" data-dismiss="modal" data-toggle="modal" id="selecter_incorOrcor" onclick="compare()">제출하기</button></div>
+               </div>
+            </div>
+         </div>
+      </div>
 
-		<!--Modal_InorrectPopup-->
-		<div class="modal fade" id="ModalIncorrect" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"  style="margin-top: 100px">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<div class="col"></div>
-						<div class="col-9 text-center">
-							<h5 class="modal-title text-center" id="ModalLabel_ip">Mdoal Incorrect title</h5>
-						</div>
-						<div class="col">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-					</div>
-					<div class="modal-body text-center">
-						<div class="col">
-							<img src="http://via.placeholder.com/640x320" class="img-fluid" style="margin-bottom: 20px" id="ModalBodyImg_ip">
-						</div>
-						<div class="col" id="ModalBody_ip">
-							Modal Royal body palace
-						</div>
-					</div>
+      <!--Modal_InorrectPopup-->
+      <div class="modal fade" id="ModalIncorrect" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" style="margin-top: 100px">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <div class="col"></div>
+                  <div class="col-9 text-center">
+                     <h5 class="modal-title text-center" id="ModalLabel_ip">Mdoal Incorrect title</h5>
+                  </div>
+                  <div class="col">
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="sendquitQst()">
+                        <span aria-hidden="true">&times;</span>
+                     </button>
+                  </div>
+               </div>
+               <div class="modal-body text-center">
+                  <div class="col">
+                     <img src="http://via.placeholder.com/640x320" class="img-fluid" style="margin-bottom: 20px" id="ModalBodyImg_ip">
+                  </div>
+                  <div class="col" id="ModalBody_ip">
+                     Modal Royal body palace
+                  </div>
+               </div>
 
-					<!--Trigger_QuestPopup-->
-					<div class="modal-footer">
-						<div class="col"><button type="button" class="btn btn-danger btn-block" data-dismiss="modal" data-toggle="modal" data-target="#ModalQuest">재도전하기</button></div>
-					</div>
-				</div>
-			</div>
-		</div>
+               <!--Trigger_QuestPopup-->
+               <div class="modal-footer">
+                  <div class="col"><button type="button" class="btn btn-danger btn-block" data-dismiss="modal" data-toggle="modal" data-target="#ModalQuest">재도전하기</button></div>
+               </div>
+            </div>
+         </div>
+      </div>
 
-		<!--Modal_CorrectPopup-->
-		<div class="modal fade" id="ModalCorrect" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"  style="margin-top: 100px">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<div class="col"></div>
-						<div class="col-9 text-center">
-							<h5 class="modal-title text-center" id="ModalLabel_cp">Mdoal Correct title</h5>
-						</div>
-						<div class="col">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-					</div>
-					<div class="modal-body text-center">
-						<div class="col">
-							<img src="http://via.placeholder.com/640x320" class="img-fluid" style="margin-bottom: 20px" id="ModalBodyImg_cp">
-						</div>
-						<div class="col" id="ModalBody_cp">
-							body Modal Royal palace
-						</div>
-					</div>
+      <!--Modal_CorrectPopup-->
+      <div class="modal fade" id="ModalCorrect" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" style="margin-top: 100px">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <div class="col"></div>
+                  <div class="col-9 text-center">
+                     <h5 class="modal-title text-center" id="ModalLabel_cp">Mdoal Correct title</h5>
+                  </div>
+                  <div class="col">
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="sendquitQst()">
+                        <span aria-hidden="true">&times;</span>
+                     </button>
+                  </div>
+               </div>
+               <div class="modal-body text-center">
+                  <div class="col">
+                     <img src="http://via.placeholder.com/640x320" class="img-fluid" style="margin-bottom: 20px" id="ModalBodyImg_cp">
+                  </div>
+                  <div class="col" id="ModalBody_cp">
+                     body Modal Royal palace
+                  </div>
+               </div>
 
-					<div class="modal-footer text-center">
-						<div class="col">
-							<button type="button" class="btn btn-primary btn-block" onclick="sendQst()">퀘스트 성공</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+               <div class="modal-footer text-center">
+                  <div class="col">
+                     <button type="button" class="btn btn-primary btn-block" onclick="sendQst()">퀘스트 성공</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
 
-	</div>
+   </div>
 
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   <!-- Optional JavaScript -->
+   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 
-	<script type="text/javascript">
-		var map = new naver.maps.Map('map');
+   <script type="text/javascript">
+      var map = new naver.maps.Map('map');
 
-		var Gyeongbok_plc = new naver.maps.LatLng(37.579813, 126.976998);
+      var Gyeongbok_plc = new naver.maps.LatLng(37.579813, 126.976998);
 
-		map.setCenter(Gyeongbok_plc);
-		map.setZoom(13);
+      map.setCenter(Gyeongbok_plc);
+      map.setZoom(13);
 
-		// 마커
-		var Gyeongbok_marker = new naver.maps.Marker({
-		    position: new naver.maps.LatLng(37.579813, 126.976998),
-		    map: map
-		});
+      // 마커
+      var Gyeongbok_marker = new naver.maps.Marker({
+          position: new naver.maps.LatLng(37.579813, 126.976998),
+          map: map
+      });
 
-		var startLoop;
+      var startLoop;
 
-		var nowHere_marker;
+      var nowHere_marker;
 
-		window.onload = function(){
-			if(navigator.geolocation == undefined){
-				alert("위치 정보 기능을 지원하지 않습니다!")
-					return;
-			}
-		}
+      window.onload = function(){
+         if(navigator.geolocation == undefined){
+            alert("위치 정보 기능을 지원하지 않습니다!")
+               return;
+         }
+      }
 
-		function showData(){
+      function showData(){
 
-			// checkAvailability();
-			// nowHere_marker.setMap(null); // 이전 마커 없애기
+         // checkAvailability();
+         // nowHere_marker.setMap(null); // 이전 마커 없애기
 
-			if(navigator.geolocation){
-				// nowHere_marker.setMap(null); //이전 마커 없애기.
-				navigator.geolocation.getCurrentPosition(success, fail); // 현재 위치 정보를 조사하고 성공 실패 했을시 호출되는 함수 설정
-			}
-			else{
-				alert('브라우저가 geolocation을 지원하지 않습니다!.');
-			}
-			// setTimeout(showData, 1000);
-		}
+         if(navigator.geolocation){
+            // nowHere_marker.setMap(null); //이전 마커 없애기.
+            navigator.geolocation.getCurrentPosition(success, fail); // 현재 위치 정보를 조사하고 성공 실패 했을시 호출되는 함수 설정
+         }
+         else{
+            alert('브라우저가 geolocation을 지원하지 않습니다!.');
+         }
+         // setTimeout(showData, 1000);
+      }
 
-		function loopData(){
-			startLoop = setInterval(showData, 1000); // 1초 간격
-		}
+      function loopData(){
+         startLoop = setInterval(showData, 1000); // 1초 간격
+      }
 
-		function stopData(){
-			clearInterval(startLoop);
-		}
+      function stopData(){
+         clearInterval(startLoop);
+      }
 
-		var arr_qstans = []; // 퀘스트 정답 값이 저장되는 배열
-		var arr_qstname = []; // 퀘스트 이름이 저장되는 배열
+      var arr_qstans = []; // 퀘스트 정답 값이 저장되는 배열
+      var arr_qstname = []; // 퀘스트 이름이 저장되는 배열
 
-		// 성공
-		function success(position) {
+      // 성공
+      function success(position) {
 
-			if(nowHere_marker != null){
-				nowHere_marker.setMap(null); // 이전 마커 없애기
-			}
+         if(nowHere_marker != null){
+            nowHere_marker.setMap(null); // 이전 마커 없애기
+         }
 
-			log("위치정보 확인 성공!");
-			for(var property in position.coords) { // 반복문 돌면서 출력
-				log("Key 값:"+property+" 정보:"+position.coords[property]);
-			}
+         var lat = position.coords["latitude"];
+         var lon = position.coords["longitude"];
 
-			var lat = position.coords["latitude"];
-			var lon = position.coords["longitude"];
+         var nowHere = new naver.maps.LatLng(lat,lon);
 
-			var nowHere = new naver.maps.LatLng(lat,lon);
+         map.setCenter(nowHere); // 중심 좌표 이동
+         map.setZoom(13);     // 줌 레벨 변경
 
-			map.setCenter(nowHere); // 중심 좌표 이동
-			map.setZoom(13);     // 줌 레벨 변경
+         // nowHere_marker = new naver.maps.Marker({
+         // position: new naver.maps.LatLng(lat, lon),
+         // map: map
+         // });
 
-			// nowHere_marker = new naver.maps.Marker({
-			// position: new naver.maps.LatLng(lat, lon),
-			// map: map
-			// });
+         nowHere_marker = new naver.maps.Marker({
+            position: new naver.maps.LatLng(lat, lon),
+            map: map,
+            icon: {
+               url: './img/ic_place_black_24dp_1x.png',
+               // size: new naver.maps.Size(35, 36),
+               // origin: new naver.maps.Point(0, 0),
+                 // anchor: new naver.maps.Point(25, 26)
+            }
+         });
 
-			nowHere_marker = new naver.maps.Marker({
-				position: new naver.maps.LatLng(lat, lon),
-				map: map,
-				icon: {
-					url: './img/ic_place_black_24dp_1x.png',
-					// size: new naver.maps.Size(35, 36),
-					// origin: new naver.maps.Point(0, 0),
-		        	// anchor: new naver.maps.Point(25, 26)
-				}
-			});
+         //var wsUri = "ws://13.124.63.236:8080/gungduk/websocket/echo.do";
+         var wsUri = "ws://localhost:8080/gungduk/websocket/echo.do";
 
-			//var wsUri = "ws://13.124.63.236:8080/gungduk/websocket/echo.do";
-			var wsUri = "ws://localhost:8081/gungduk/websocket/echo.do";
-			
-			var message = "Hello";
+         var msg = "{ \"latitude\":" + lat + ", \"longitude\":" + lon + ", \"id\": \"sy\"}";
+         console.log(msg);
+         this.send = function (message, callback) {
+             this.waitForConnection(function () {
+                 ws.send(message);
+                 if (typeof callback !== 'undefined') {
+                   callback();
+                 }
+             }, 1000);
+         };
 
+         this.waitForConnection = function (callback, interval) {
+             if (ws.readyState === 1) {
+                 callback();
+             } else {
+                 var that = this;
+                 // optional: implement backoff for interval here
+                 setTimeout(function () {
+                     that.waitForConnection(callback, interval);
+                 }, interval);
+             }
+         };
+         
             websocket = new WebSocket(wsUri);
-            websocket.onopen = function(evt) {
+            websocket.onopen = function(data) {
                 console.log("연결됨");
-                websocket.send(message);
-                console.log(data);
-				$('#ModalLabel_sp').text(data.qstName);
-				$('#ModalBodyImg_sp').attr('src', data.imgUrl); // 궁 정보 모달창의 이미지
-				$('#ModalBody_sp').text(data.info);
-
-				$('#ModalLabel_qp').text(data.qstName);
-				$('#ModalBodyImg_qp').attr('src', data.imgUrl); // 퀘스트 정보 모달창의 이미지
-				$('#ModalBody_qp').text(data.qst);
-
-				$('#inlineRadio1').text(data.qstEx1);
-				$('#inlineRadio2').text(data.qstEx2);
-				$('#inlineRadio3').text(data.qstEx3);
-
-				arr_qstans.push(data.answer);
-				arr_qstname.push(data.qstName);
-				console.log(arr_qstname);
-
-				$('#ModalLabel_cp').text(data.qstName);
-				$('#ModalBodyImg_cp').attr('src', data.imgUrl);
-				$('#ModalBody_cp').text(data.info);
-
-				$('#ModalLabel_ip').text(data.qstName);
-				$('#ModalBodyImg_ip').attr('src', data.imgUrl);
-				$('#ModalBody_ip').text(data.info);
+               this.send(msg);  
             };
-            websocket.onmessage = function(evt) {
-                console.log(evt.data);
+            websocket.onmessage = function(data) {
+               console.log(data);
+               
+               var obj = JSON.parse(data.data);
+            $('#ModalLabel_sp').text(obj.qstName);
+            $('#ModalBodyImg_sp').attr('src', obj.imgUrl); // 궁 정보 모달창의 이미지
+            $('#ModalBody_sp').text(obj.info);
+
+            $('#ModalLabel_qp').text(obj.qstName);
+            $('#ModalBodyImg_qp').attr('src', obj.imgUrl); // 퀘스트 정보 모달창의 이미지
+            $('#ModalBody_qp').text(obj.qst);
+
+            $('#inlineRadio1').text(obj.qstEx1);
+            $('#inlineRadio2').text(obj.qstEx2);
+            $('#inlineRadio3').text(obj.qstEx3);
+
+            arr_qstans.push(obj.answer);
+            arr_qstname.push(obj.qstName);
+            console.log(arr_qstname);
+
+            $('#ModalLabel_cp').text(obj.qstName);
+            $('#ModalBodyImg_cp').attr('src', obj.imgUrl);
+            $('#ModalBody_cp').text(obj.info);
+
+            $('#ModalLabel_ip').text(obj.qstName);
+            $('#ModalBodyImg_ip').attr('src', obj.imgUrl);
+            $('#ModalBody_ip').text(obj.info);
+
+            $('#ModalPopup').modal('show');
             };
             websocket.onerror = function(evt) {
-                console.log("error: " + evt.data);
+                console.log("error: " + evt);
             };
             websocket.onclose = function(evt) {
                 websocket.close();
                 console.log("close");
             };
-            
-            /*
-			for (var i=0; i<arr_ql.length; i++) {
-				if (nowHere.equals(arr_ql[i])) {
-					var qstNum = i+1;
+      }
 
-					$.ajax({
+      function compare() {
+         var arr_userchoice = $("input[type=radio][name=inlineRadioOptions]:checked").val();
 
-						url: 'http://13.124.63.236:8080/gungduk/api/v1/showQuest?qstNum='+qstNum,
-						type: 'POST',
-						contentType: 'application/json; charset=UTF-8',
+         // arr_qstans.push(2);
 
-						success: function(data) {
-							console.log(data);
-							$('#ModalLabel_sp').text(data.qstName);
-							$('#ModalBodyImg_sp').attr('src', data.imgUrl); // 궁 정보 모달창의 이미지
-							$('#ModalBody_sp').text(data.info);
+         if (arr_userchoice==(arr_qstans[0])) {
+            $('#selecter_incorOrcor').attr('data-target', '#ModalCorrect');
+         }
+         else {
+            $('#selecter_incorOrcor').attr('data-target', '#ModalIncorrect');
+         }
+      }
 
-							$('#ModalLabel_qp').text(data.qstName);
-							$('#ModalBodyImg_qp').attr('src', data.imgUrl); // 퀘스트 정보 모달창의 이미지
-							$('#ModalBody_qp').text(data.qst);
+      function sendQst() {
+         var userID = "sy";
+        	 //sessionStorage.getItem("id");
+         console.log(userID);
 
-							$('#inlineRadio1').text(data.qstEx1);
-							$('#inlineRadio2').text(data.qstEx2);
-							$('#inlineRadio3').text(data.qstEx3);
+         $.ajax ({
 
-							arr_qstans.push(data.answer);
-							arr_qstname.push(data.qstName);
-							console.log(arr_qstname);
+            url: 'http://13.125.177.106:8080/gungduk/api/v1/finishQuest?id='+userID+'&qstName='+arr_qstname[0],
+            type: 'POST',
 
-							$('#ModalLabel_cp').text(data.qstName);
-							$('#ModalBodyImg_cp').attr('src', data.imgUrl);
-							$('#ModalBody_cp').text(data.info);
+            success: function(data) {
+               location.replace('map.html');
+            }, error: function(err) {
+                     console.log(err.responseText);
+                  }
+         })
+      }
 
-							$('#ModalLabel_ip').text(data.qstName);
-							$('#ModalBodyImg_ip').attr('src', data.imgUrl);
-							$('#ModalBody_ip').text(data.info);
+      function sendquitQst() {
+         var userID = "sy";
+        	 //sessionStorage.getItem("id");
 
-							}, error : function(err){
-								console.log(err.responseText);
-						}
-					})
+         $.ajax ({
 
-					$('#ModalPopup').modal('show');
-				}
-			}*/
+            url: 'http://13.125.177.106:8080/gungduk/api/v1/quitQuest?id='+userID+'&qstName='+arr_qstname[0],
+            type: 'GET',
 
-		}
+            success: function(data) {
+               location.replace('map.html');
+            }, error: function(err) {
+                  console.log(err.responseText);
+               }
+         })
+      }
 
-		function compare() {
-			var arr_userchoice = $("input[type=radio][name=inlineRadioOptions]:checked").val();
+      // 실패
+      function fail(err){
+         switch (err.code){
+            case err.PERMISSION_DENIED:
+            msg = "사용자 거부";
+            break;
+                   
+            case err.PERMISSION_UNAVAILABLE:
+            msg = "지리정보를 얻을 수 없음";
+            break;
+                   
+            case err.TIMEOUT:
+            msg = "시간초과";
+            break;
+                   
+            case err.UNKNOWN_ERROR:
+            msg = "알 수 없는 오류 발생";
+            break;
+         }
+         log(msg);
+      }
 
-			// arr_qstans.push(2);
-
-			if (arr_userchoice==(arr_qstans[0])) {
-				$('#selecter_incorOrcor').attr('data-target', '#ModalCorrect');
-			}
-			else {
-				$('#selecter_incorOrcor').attr('data-target', '#ModalIncorrect');
-			}
-		}
-
-		function sendQst() {
-			var userID = sessionStorage.getItem("id");
-			console.log(userID);
-
-			$.ajax ({
-
-				url: 'http://13.124.63.236:8081/gungduk/api/v1/finishQuest?id='+userID+'&qstName='+arr_qstname[0],
-				type: 'POST',
-
-				success: function(data) {
-					location.replace('step2_Gyeongbok.html');
-				},  error : function(err){
-								console.log(err.responseText);
-							}
-			})
-		}
-
-		// 실패
-		function fail(err){
-			switch (err.code){
-				case err.PERMISSION_DENIED:
-				msg = "사용자 거부";
-				break;
-						 
-				case err.PERMISSION_UNAVAILABLE:
-				msg = "지리정보를 얻을 수 없음";
-				break;
-						 
-				case err.TIMEOUT:
-				msg = "시간초과";
-				break;
-						 
-				case err.UNKNOWN_ERROR:
-				msg = "알 수 없는 오류 발생";
-				break;
-			}
-			log(msg);
-		}
-
-		function log(msg){
-			var console = document.getElementById("console");
-			console.innerHTML += msg + "<br/>";
-		}
-	</script>
+      function log(msg){
+         var console = document.getElementById("console");
+         console.innerHTML += msg + "<br/>";
+      }
+   </script>
 
 </body>
 </html>
