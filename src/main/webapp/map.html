@@ -2,7 +2,7 @@
 <html lang="eng">
 <head>
    <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, inital-scale=1, shrink-to-fit=no">
+   <meta name="viewport" body="width=device-width, inital-scale=1, shrink-to-fit=no">
    <title>step2_Gyeongbok</title>
 
    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=TTSmvAuWm8qgc0ZZ8jYp&submodules=geocoder"></script>
@@ -71,7 +71,7 @@
       <!-- Modal_SpecificpointPopup-->
       <div class="modal fade" id="ModalPopup" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true" data-backdrop="static" style="margin-top: 100px">
          <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-body">
                <div class="modal-header">
                   <div class="col"></div>
                   <div class="col-9 text-center">
@@ -103,7 +103,7 @@
       <!--Modal_QuestPopup-->
       <div class="modal fade" id="ModalQuest" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" style="margin-top: 100px">
          <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-body">
                <div class="modal-header">
                   <div class="col"></div>
                   <div class="col-9 text-center">
@@ -149,7 +149,7 @@
       <!--Modal_InorrectPopup-->
       <div class="modal fade" id="ModalIncorrect" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" style="margin-top: 100px">
          <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-body">
                <div class="modal-header">
                   <div class="col"></div>
                   <div class="col-9 text-center">
@@ -181,7 +181,7 @@
       <!--Modal_CorrectPopup-->
       <div class="modal fade" id="ModalCorrect" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" style="margin-top: 100px">
          <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-body">
                <div class="modal-header">
                   <div class="col"></div>
                   <div class="col-9 text-center">
@@ -302,8 +302,8 @@
             }
          });
 
-         //var wsUri = "ws://13.124.63.236:8080/gungduk/websocket/echo.do";
-         var wsUri = "ws://localhost:8080/gungduk/websocket/echo.do";
+         var wsUri = "ws://13.125.177.106:8080/gungduk/websocket/echo.do";
+         //var wsUri = "ws://localhost:8080/gungduk/websocket/echo.do";
 
          var msg = "{ \"latitude\":" + lat + ", \"longitude\":" + lon + ", \"id\": \"sy\"}";
          console.log(msg);

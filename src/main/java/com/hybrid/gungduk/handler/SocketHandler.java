@@ -8,6 +8,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketMessage;
@@ -17,7 +18,7 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 import com.hybrid.gungduk.dao.QuestDao;
 import com.hybrid.gungduk.dto.QuestDto;
 
-
+@CrossOrigin(origins = "*")
 public class SocketHandler extends TextWebSocketHandler implements InitializingBean{
 
 	@Autowired
