@@ -1,7 +1,5 @@
 package com.hybrid.gungduk.dto;
 
-import org.json.simple.JSONObject;
-
 public class QuestDto {
 	int qstNum;
 	String qstName;

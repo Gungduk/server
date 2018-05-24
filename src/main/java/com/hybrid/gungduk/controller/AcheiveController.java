@@ -17,7 +17,7 @@ import io.swagger.annotations.Api;
 
 @CrossOrigin(origins = "*")
 
-@Api(value="AcheiveResponse", description="�떖�꽦瑜� API", basePath="/api/v1/acheive")
+@Api(value="AcheiveResponse", description="달성률 API", basePath="/api/v1/acheive")
 @RestController
 public class AcheiveController {
 
@@ -52,7 +52,6 @@ public class AcheiveController {
 		return acheiveDao.putData(gb, cg, ds, cd);
 	}
 	
-	//占쎌끏�뙴�슢留� 占쎌꼷�뮞占쎈뱜占쎌뵠�뵳占� �뵳�딅뮞占쎈뱜
 	 @RequestMapping(value = "/api/v1/successQst", method = RequestMethod.POST)
 	 public @ResponseBody List<String> acheive(@RequestParam String id, String plcName){
 	 	return acheiveDao.qstList(id, plcName);
