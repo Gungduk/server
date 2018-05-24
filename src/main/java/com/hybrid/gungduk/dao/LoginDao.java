@@ -14,4 +14,8 @@ public class LoginDao {
 		//��ġ�ϴ� ȸ���� �ִ��� Ȯ���ϰ� id ��ȯ
 		return sqlSession.selectOne("login.checkInfo", logDtoReq);
 	}
+	
+	public String getEncPw(String id){
+		return sqlSession.selectOne("login.encPw", id);
+	}
 }

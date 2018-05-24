@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 import com.hybrid.gungduk.dao.LoginDao;
 import com.hybrid.gungduk.dto.LoginDto;
 
@@ -17,29 +20,44 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @CrossOrigin(origins = "*")
-@Api(value="LoginResponse", description="로그인API", basePath="/api/v1/login")
+@Api(value="LoginResponse", description="濡쒓렇�씤API", basePath="/api/v1/login")
 @RestController
 public class LoginController {
 	
 	@Autowired
 	LoginDao logDao;
+	
+	@Autowired
+	BCryptPasswordEncoder passwordEncoder;
 
-	@ApiOperation(value = "login", notes = "id과 pw가 일치하면 세션에 userLogInfo이란 이름으로 LoginDto값을 저장한 후 1 반환/ 실패시 -1 반환")
+	@ApiOperation(value = "login", notes = "id怨� pw媛� �씪移섑븯硫� �꽭�뀡�뿉 userLogInfo�씠�� �씠由꾩쑝濡� LoginDto媛믪쓣 ���옣�븳 �썑 1 諛섑솚/ �떎�뙣�떆 -1 諛섑솚")
     @RequestMapping(value="/api/v1/login", method=RequestMethod.POST)
-    public @ResponseBody String loginProcess(@RequestBody LoginDto logDtoReq, HttpSession session){
-	   
-	   String loginUser = logDao.loginCheck(logDtoReq);
-	   
-	   if(loginUser != null){
-		   session.setAttribute("userLogInfo", logDtoReq);
-		   LoginDto logInfo = (LoginDto) session.getAttribute("userLogInfo"); 
-		      String s = logInfo.getId();
-		   return s;//����
-	   }
-	   return "fail";//����
+	public @ResponseBody String loginProcess(@RequestBody LoginDto logDtoReq, HttpSession session){
+
+		String encPw = logDao.getEncPw(logDtoReq.getId());
+		String rawPw = logDtoReq.getPw();
+		if(rawPw == null) return "fail";
+		
+		if(passwordEncoder.matches(rawPw, encPw)){
+			logDtoReq.setPw(encPw);
+			session.setAttribute("userLogInfo", logDtoReq);
+		    LoginDto logInfo = (LoginDto) session.getAttribute("userLogInfo"); 
+		       String s = logInfo.getId();
+		    return s;
+		}
+		
+//	    String loginUser = logDao.loginCheck(logDtoReq);//loginUser null이면 불일치
+//	   
+//	    if(loginUser != null){
+//		    session.setAttribute("userLogInfo", logDtoReq);
+//		    LoginDto logInfo = (LoginDto) session.getAttribute("userLogInfo"); 
+//		       String s = logInfo.getId();
+//		    return s;//����
+//	    }
+	    return "fail";//����
     }
 
-	@ApiOperation(value = "logout", notes = "���� ��� ���� 1��ȯ")
+	@ApiOperation(value = "logout", notes = "占쏙옙占쏙옙 占쏙옙占� 占쏙옙占쏙옙 1占쏙옙환")
     @RequestMapping(value="/api/v1/logout")
     public int logout(HttpSession session){
         session.invalidate();
@@ -47,9 +65,9 @@ public class LoginController {
         return 1;
     }
 	/*
-	 * 나중에 세션 필요한 페이지에서 session.getAttribute("userLogInfo");사용해서 LoginDto객체 전달받음
-	 * if(session.getAttribute("userLogInfo") == null) : 로그인이 안된 상태
-	 * 매 화면마다 session.getAttribute하기 귀찮으면 @SessionAttributes 세션 연동하기
+	 * �굹以묒뿉 �꽭�뀡 �븘�슂�븳 �럹�씠吏��뿉�꽌 session.getAttribute("userLogInfo");�궗�슜�빐�꽌 LoginDto媛앹껜 �쟾�떖諛쏆쓬
+	 * if(session.getAttribute("userLogInfo") == null) : 濡쒓렇�씤�씠 �븞�맂 �긽�깭
+	 * 留� �솕硫대쭏�떎 session.getAttribute�븯湲� 洹�李��쑝硫� @SessionAttributes �꽭�뀡 �뿰�룞�븯湲�
 	 * */
      
 }

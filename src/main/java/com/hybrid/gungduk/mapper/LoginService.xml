@@ -7,4 +7,10 @@
         FROM 	user
         WHERE	id = #{id} AND pw = #{pw}
     </select>
+    
+    <select id="encPw" parameterType="String" resultType="String">
+        SELECT 	pw
+        FROM 	user
+        WHERE	id = #{id}
+    </select>
 </mapper>

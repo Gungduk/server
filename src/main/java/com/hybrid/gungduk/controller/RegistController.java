@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import com.hybrid.gungduk.dao.RegistDao;
 import com.hybrid.gungduk.dto.UserDto;
 
@@ -22,12 +24,18 @@ public class RegistController {
 	@Autowired
 	RegistDao regDao;
 	
+	@Autowired
+	BCryptPasswordEncoder passwordEncoder;
+	
 	@RequestMapping(value = "/api/v1/regist", method = RequestMethod.POST)
 	public @ResponseBody int regist(@RequestBody UserDto regDtoReq){
 
 		String id = regDtoReq.getId();
 		String pw = regDtoReq.getPw();
 		String ph = regDtoReq.getPhoneNum();
+		
+		//암호화
+		regDtoReq.setPw(passwordEncoder.encode(regDtoReq.getPw()));
 		
 		if(id == "" || pw == "" || ph == "")
 			return 2;
