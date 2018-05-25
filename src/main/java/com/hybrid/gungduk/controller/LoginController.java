@@ -3,15 +3,14 @@ package com.hybrid.gungduk.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.hybrid.gungduk.dao.LoginDao;
 import com.hybrid.gungduk.dto.LoginDto;
@@ -29,6 +28,12 @@ public class LoginController {
 	
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
+	
+	@RequestMapping(value="/kakaoLogin", produces = "application/json", method = {RequestMethod.GET, RequestMethod.POST})
+	public String kakaoLogin(@RequestParam("code") String code) {
+		System.out.println("code:" + code);
+		return code;
+	}
 
 	@ApiOperation(value = "login", notes = "id怨� pw媛� �씪移섑븯硫� �꽭�뀡�뿉 userLogInfo�씠�� �씠由꾩쑝濡� LoginDto媛믪쓣 ���옣�븳 �썑 1 諛섑솚/ �떎�뙣�떆 -1 諛섑솚")
     @RequestMapping(value="/api/v1/login", method=RequestMethod.POST)
