@@ -27,7 +27,7 @@ public class AcheiveController {
 	@RequestMapping(value = "/api/v1/acheive", method = RequestMethod.POST)
 	public @ResponseBody AcheiveDto acheive(@RequestParam String id){
 		
-//		//AcheiveDto acheiveDto = nul;
+//		//AcheiveDto acheiveDto = null;
 		
 		double GBCount = acheiveDao.count("kbk");
 		double CGCount = acheiveDao.count("ckk");
