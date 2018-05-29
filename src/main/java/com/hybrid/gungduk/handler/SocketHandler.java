@@ -37,8 +37,10 @@ public class SocketHandler extends TextWebSocketHandler implements InitializingB
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
     	JSONParser jsonParser = new JSONParser();
 		JSONObject jsonObject = (JSONObject) jsonParser.parse(message.getPayload());
-		double latitude = (double) jsonObject.get("latitude");
-		double longitude = (double) jsonObject.get("longitude");
+		double latitude = (Double) jsonObject.get("latitude");
+		double longitude = (Double) jsonObject.get("longitude");
+//		double latitude = (double) jsonObject.get("latitude");
+//		double longitude = (double) jsonObject.get("longitude");
 		String id = (String) jsonObject.get("id");		
 		String json;
 		JSONObject obj = new JSONObject();
