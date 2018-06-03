@@ -205,7 +205,7 @@
         	<artifactId>spring-security-web</artifactId>
         	<version>4.1.0.RELEASE</version>
         </dependency>
-		</dependencies>
+	</dependencies>
     <build>
         <plugins>
             <plugin>
