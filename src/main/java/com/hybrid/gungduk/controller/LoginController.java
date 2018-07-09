@@ -19,7 +19,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @CrossOrigin(origins = "*")
-@Api(value="LoginResponse", description="濡쒓렇�씤API", basePath="/api/v1/login")
+@Api(value="LoginResponse", description="로그인API", basePath="/api/v1/login")
 @RestController
 public class LoginController {
 	
