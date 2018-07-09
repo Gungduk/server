@@ -33,11 +33,12 @@ public class RegistController {
 		String id = regDtoReq.getId();
 		String pw = regDtoReq.getPw();
 		String ph = regDtoReq.getPhoneNum();
+		String email = regDtoReq.getEmail(); //수정!!!
 		
 		//암호화
 		regDtoReq.setPw(passwordEncoder.encode(regDtoReq.getPw()));
 		
-		if(id == "" || pw == "" || ph == "")
+		if(id == "" || pw == "" || ph == "" || email == "")
 			return 2;
 		
 		int rs = regDao.registerCheck(id);
