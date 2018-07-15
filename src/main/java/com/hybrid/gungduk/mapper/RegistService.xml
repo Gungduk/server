@@ -10,8 +10,8 @@
     
     <insert id="regist" parameterType="com.hybrid.gungduk.dto.UserDto">
         INSERT 
-        	INTO user(id, pw, phoneNum)
-        VALUES(#{id}, #{pw}, #{phoneNum})
+        	INTO user(id, pw, phoneNum, level)
+        VALUES(#{id}, #{pw}, #{phoneNum}, 1)
     </insert>
     
     <select id="getQuest" resultType="String">

@@ -53,4 +53,18 @@ public class QuestDao {
 		map.put("qstName", qstName);
 		sqlSession.update("quest.changeStatus", map);
 	}
+	
+	
+	///////////
+	public double countAllYes(String id){
+		return sqlSession.selectOne("quest.countAllYes", id);
+	}
+	
+	public void changeLevel(int level, String id){
+		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("level", level);
+		map.put("id", id);
+		sqlSession.update("quest.changeLevel", map);
+	}
 }
