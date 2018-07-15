@@ -32,8 +32,8 @@ public class ModifyController {
 	}
 	
 	@RequestMapping(value = "/api/v1/updateInfo", method = RequestMethod.POST)
-	public @ResponseBody void updateInfo(@RequestParam String id, String pw, String phoneNum){
+	public @ResponseBody void updateInfo(@RequestParam String id, String pw, String phoneNum, String email){
 		String encPw = passwordEncoder.encode(pw);
-		modifyDao.updateInfo(id, encPw, phoneNum);
+		modifyDao.updateInfo(id, encPw, phoneNum, email);
 	}
 }
