@@ -39,8 +39,6 @@ public class SocketHandler extends TextWebSocketHandler implements InitializingB
 		JSONObject jsonObject = (JSONObject) jsonParser.parse(message.getPayload());
 		double latitude = (Double) jsonObject.get("latitude");
 		double longitude = (Double) jsonObject.get("longitude");
-//		double latitude = (double) jsonObject.get("latitude");
-//		double longitude = (double) jsonObject.get("longitude");
 		String id = (String) jsonObject.get("id");		
 		String json;
 		JSONObject obj = new JSONObject();
