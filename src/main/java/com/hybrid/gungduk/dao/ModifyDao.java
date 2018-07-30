@@ -26,3 +26,4 @@ public class ModifyDao {
 		sqlSession.update("modify.updateInfo",dto);
 	}
 }
+

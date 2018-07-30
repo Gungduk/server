@@ -6,6 +6,8 @@ import java.util.HashMap;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.hybrid.gungduk.dto.AcheiveDto;
+import com.hybrid.gungduk.dto.LevelDto;
 import com.hybrid.gungduk.dto.QuestDto;
 import com.hybrid.gungduk.dto.RangeQuestDto;
 
@@ -66,5 +68,14 @@ public class QuestDao {
 		map.put("level", level);
 		map.put("id", id);
 		sqlSession.update("quest.changeLevel", map);
+	}
+	
+	public LevelDto putLevel(int level, double percent){
+		LevelDto levelDto = new LevelDto();
+		
+		levelDto.setLevel(level);
+		levelDto.setPercentage(percent);
+		
+		return levelDto; 
 	}
 }
