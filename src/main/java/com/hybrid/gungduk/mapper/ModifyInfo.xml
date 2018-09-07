@@ -13,7 +13,8 @@
     <update id="updateInfo" parameterType="String">
         UPDATE user
      	SET pw = #{pw},
-         	phoneNum = #{phoneNum}
+         	phoneNum = #{phoneNum},
+         	email = #{email}
      	WHERE id = #{id}
     </update>
  

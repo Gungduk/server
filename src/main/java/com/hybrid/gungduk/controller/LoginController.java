@@ -12,24 +12,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.hybrid.gungduk.dao.LoginDao;
 import com.hybrid.gungduk.dto.LoginDto;
-import com.hybrid.gungduk.service.LoginService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @CrossOrigin(origins = "*")
-@Api(value = "LoginResponse", description = "濡쒓렇�씤API", basePath = "/api/v1/login")
+@Api(value="LoginResponse", description="로그인API", basePath="/api/v1/login")
 @RestController
 public class LoginController {
-
+	
 	@Autowired
 	LoginDao logDao;
-	@Autowired
-	LoginService service;
-
+	
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
 

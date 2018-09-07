@@ -20,9 +20,10 @@ public class ModifyDao {
 	}
 	
 	
-	public void updateInfo(String id, String pw, String phoneNum){
-		dto = new UserDto(id, pw, phoneNum);
+	public void updateInfo(String id, String pw, String phoneNum, String email){
+		dto = new UserDto(id, pw, phoneNum, email);
 
 		sqlSession.update("modify.updateInfo",dto);
 	}
 }
+
