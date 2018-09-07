@@ -46,10 +46,11 @@ public class LoginController {
 		String nickname = null;
 		String thumbnailImage = null;
 		String profileImage = null;
-		String email = node2.path("kaccount_email.email").asText();
+		String email = null;
 
 		// 유저정보 카톡에서 가져오기 Get properties
 		JsonNode properties = node2.path("properties");
+		JsonNode kakao_account = node2.path("kakao_account");
 		
 		if (properties.isMissingNode()) {
 			// if "name" node is missing
@@ -62,9 +63,15 @@ public class LoginController {
 			System.out.println("thumbnailImage : " + thumbnailImage);
 			System.out.println("profileImage : " + profileImage);
 		}
-			System.out.println("email: " + email);
-			System.out.println("id: " + id);
-		
+
+		if (kakao_account.isMissingNode()) {
+			// if "name" node is missing
+			System.out.println("없나봐 어쩌라고");
+		} else {
+			email = kakao_account.path("email").asText();
+
+			System.out.println("email : " + email);
+		}
 	}
 
 	@ApiOperation(value = "login", notes = "id怨� pw媛� �씪移섑븯硫� �꽭�뀡�뿉 userLogInfo�씠�� �씠由꾩쑝濡� LoginDto媛믪쓣 ���옣�븳 �썑 1 諛섑솚/ �떎�뙣�떆 -1 諛섑솚")

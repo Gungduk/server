@@ -13,9 +13,6 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicNameValuePair;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -76,14 +73,7 @@ public class LoginService {
 		post.addHeader("Authorization", "Bearer " + autorize_code);
 		JsonNode returnNode = null;
 
-		//add body
-		final List<NameValuePair> postParams = new ArrayList<NameValuePair>();
-		String kakaoEmail = "kakao_account.email";
-		
-		postParams.add(new BasicNameValuePair("property_keys", kakaoEmail));
-		
 		try {
-			post.setEntity(new UrlEncodedFormEntity(postParams));
 			final HttpResponse response = client.execute(post);
 			final int responseCode = response.getStatusLine().getStatusCode();
 			System.out.println("\nSending 'POST' request to URL : " + RequestUrl);
