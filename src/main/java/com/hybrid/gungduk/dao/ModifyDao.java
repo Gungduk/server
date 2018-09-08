@@ -21,9 +21,9 @@ public class ModifyDao {
 	
 	
 	public void updateInfo(String id, String pw, String phoneNum, String email){
-		dto = new UserDto(id, pw, phoneNum, email);
+		int level = 0;
+		dto = new UserDto(id, pw, phoneNum, email, level);
 
 		sqlSession.update("modify.updateInfo",dto);
 	}
 }
-

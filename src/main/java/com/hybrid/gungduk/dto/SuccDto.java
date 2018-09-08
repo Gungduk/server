@@ -3,7 +3,7 @@ package com.hybrid.gungduk.dto;
 public class SuccDto {
 	String id;
 	String qstName;
-	int yesOrNo;
+	String yesOrNo;
 	
 	public SuccDto(String id, String qstName) {
 		super();
@@ -22,10 +22,10 @@ public class SuccDto {
 	public void setQstName(String qstName) {
 		this.qstName = qstName;
 	}
-	public int getYesOrNo() {
+	public String getYesOrNo() {
 		return yesOrNo;
 	}
-	public void setYesOrNo(int yesOrNo) {
+	public void setYesOrNo(String yesOrNo) {
 		this.yesOrNo = yesOrNo;
 	}
 }
