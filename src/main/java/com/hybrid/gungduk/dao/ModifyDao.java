@@ -14,6 +14,9 @@ public class ModifyDao {
 	
 	private UserDto dto;
 	
+	public String validate(String id){
+		return sqlSession.selectOne("modify.validate", id);
+	}
 	
 	public List<UserDto> info(String id){
 		return sqlSession.selectList("modify.info", id);

@@ -3,6 +3,11 @@
 
 <mapper namespace="modify">
 
+	<select id="validate" parameterType="String" resultType="String">
+        SELECT 	pw
+        FROM 	user
+        WHERE	id = #{id}
+    </select>
 
     <select id="info" parameterType="String" resultType="com.hybrid.gungduk.dto.UserDto">
         SELECT 	*

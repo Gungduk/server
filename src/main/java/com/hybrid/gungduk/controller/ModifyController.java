@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.hybrid.gungduk.dao.ModifyDao;
+import com.hybrid.gungduk.dto.LoginDto;
 import com.hybrid.gungduk.dto.UserDto;
 
 @CrossOrigin(origins = "*")
@@ -25,6 +26,19 @@ public class ModifyController {
 	
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
+	
+	@RequestMapping(value = "/api/v1/validatePw", method = RequestMethod.POST)
+	public @ResponseBody String validatePw(@RequestParam String id, String pw){
+		String encPw = modifyDao.validate(id);
+		String rawPw = pw;
+		if(rawPw == null) 
+			return "-1";
+		
+		if(passwordEncoder.matches(rawPw, encPw)){
+		    return rawPw;
+		}
+		return "-1";
+	}
 	
 	@RequestMapping(value = "/api/v1/modifyInfo", method = RequestMethod.POST)
 	public @ResponseBody List<UserDto> modifyInfo(@RequestParam String id){
