@@ -17,7 +17,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.hybrid.gungduk.dao.ModifyDao;
 import com.hybrid.gungduk.dto.LoginDto;
 import com.hybrid.gungduk.dto.UserDto;
-import com.hybrid.gungduk.dto.ValPwDto;
 
 @CrossOrigin(origins = "*")
 @Controller
