@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hybrid.gungduk.dao.QuestDao;
-import com.hybrid.gungduk.dto.LevelDto;
 import com.hybrid.gungduk.dto.QuestDto;
 
 import io.swagger.annotations.Api;
@@ -33,26 +32,13 @@ public class QuestCheckController {
 
 	@ApiOperation(value = "finishQuest", notes = "해당 퀘스트의 yesOrNo 업데이트")
 	@RequestMapping(value = "/api/v1/finishQuest", method = RequestMethod.POST)
-	public @ResponseBody LevelDto finishQuest(@RequestParam String id, String qstName){
-
+	public @ResponseBody void finishQuest(@RequestParam String id, String qstName){
+		
 		questDao.finishQuest(id, qstName);
 		questDao.quitQuest(id, qstName);
 		
-		
-		//change level
-		double countAllYes = questDao.countAllYes(id); //10개 퀘스트 햇으면...5개마다 레벨업		
-		int level = (int) (countAllYes / 5 + 1);
-		double percent = (countAllYes % 5) * 20;
-		
-		if(countAllYes >= 25){
-			
-			level = 5;
-			percent = 100;
-		}
-	
-		questDao.changeLevel(level, id);
-
-		return questDao.putLevel(level, percent);
+		//레벨 체크
+//		int count = questDao.levelCheck(id);
 	} 
 
 	@ApiOperation(value = "quitQuest", notes = "퀘스트 팝업 창을 껐을 때 실행된다. status를 0으로 바꾸기")
@@ -61,7 +47,6 @@ public class QuestCheckController {
 		
 		questDao.quitQuest(id, qstName);
 	} 
-
 } 
 		
 		

@@ -18,7 +18,7 @@ public class SimpleRegistrationNotifier implements RegistrationNotifier {
 //	public void sendMail(String userEmail, String uuid) {
 //		SimpleMailMessage message = new SimpleMailMessage();
 //		message.setSubject("[GUNGDUK] 임시 비밀번호 안내");
-//		message.setFrom("gungduk.adm@gmail.com");
+//		message.setFrom("");//이메일 주소 추가
 //		message.setText("임시 비밀번호는 \n"+uuid+"\n입니다.");
 //		message.setTo(userEmail);
 //		try {

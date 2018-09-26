@@ -5,15 +5,17 @@ public class UserDto {
 	String pw;
 	String phoneNum;
 	String email = null;
+	int level = 1;
 	
 	public UserDto() {}
 	
-	public UserDto(String id, String pw, String phoneNum, String email) {
+	public UserDto(String id, String pw, String phoneNum, String email, int level) {
 		super();
 		this.id = id;
 		this.pw = pw;
 		this.phoneNum = phoneNum;
 		this.email = email;
+		this.level = level;
 	}
 	public String getId() {
 		return id;
@@ -39,7 +41,12 @@ public class UserDto {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public int getLevel() {
+		return level;
+	}
+	public void setLevel(int level) {
+		this.level = level;
+	}
 	
 	
 }
-
