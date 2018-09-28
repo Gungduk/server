@@ -57,7 +57,7 @@ public class QuestDao {
 	}
 	
 	
-	///////////
+	///////////레벨, 퍼센트
 	public double countAllYes(String id){
 		return sqlSession.selectOne("quest.countAllYes", id);
 	}

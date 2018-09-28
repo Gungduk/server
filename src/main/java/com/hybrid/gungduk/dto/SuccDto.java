@@ -3,6 +3,7 @@ package com.hybrid.gungduk.dto;
 public class SuccDto {
 	String id;
 	String qstName;
+	//
 	int yesOrNo;
 	
 	public SuccDto(String id, String qstName) {

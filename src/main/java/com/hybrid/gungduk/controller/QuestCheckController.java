@@ -60,8 +60,7 @@ public class QuestCheckController {
 	public @ResponseBody void status(@RequestParam String id, String qstName){
 		
 		questDao.quitQuest(id, qstName);
-	} 
-
+	}
 } 
 		
 		

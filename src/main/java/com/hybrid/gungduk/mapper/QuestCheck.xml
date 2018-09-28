@@ -56,6 +56,7 @@
         WHERE	id = #{id} AND yesOrNo = 1
     </select>
 	
+<!-- 	레벨 변경 -->
 	<update id = "changeLevel" parameterType="hashmap">
 		UPDATE user
 		SET level = #{level}

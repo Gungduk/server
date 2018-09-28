@@ -2,7 +2,8 @@
 <html lang="eng">
 <head>
    <meta charset="utf-8">
-   <meta name="viewport" body="width=device-width, inital-scale=1, shrink-to-fit=no">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta http-equiv="Content-Security-Policy" content="connect-src *">
    <title>step2_Gyeongbok</title>
 
    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=TTSmvAuWm8qgc0ZZ8jYp&submodules=geocoder"></script>
@@ -71,7 +72,7 @@
       <!-- Modal_SpecificpointPopup-->
       <div class="modal fade" id="ModalPopup" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true" data-backdrop="static" style="margin-top: 100px">
          <div class="modal-dialog" role="document">
-            <div class="modal-body">
+            <div class="modal-content">
                <div class="modal-header">
                   <div class="col"></div>
                   <div class="col-9 text-center">
@@ -103,7 +104,7 @@
       <!--Modal_QuestPopup-->
       <div class="modal fade" id="ModalQuest" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" style="margin-top: 100px">
          <div class="modal-dialog" role="document">
-            <div class="modal-body">
+            <div class="modal-content">
                <div class="modal-header">
                   <div class="col"></div>
                   <div class="col-9 text-center">
@@ -149,7 +150,7 @@
       <!--Modal_InorrectPopup-->
       <div class="modal fade" id="ModalIncorrect" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" style="margin-top: 100px">
          <div class="modal-dialog" role="document">
-            <div class="modal-body">
+            <div class="modal-content">
                <div class="modal-header">
                   <div class="col"></div>
                   <div class="col-9 text-center">
@@ -181,7 +182,7 @@
       <!--Modal_CorrectPopup-->
       <div class="modal fade" id="ModalCorrect" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" style="margin-top: 100px">
          <div class="modal-dialog" role="document">
-            <div class="modal-body">
+            <div class="modal-content">
                <div class="modal-header">
                   <div class="col"></div>
                   <div class="col-9 text-center">
@@ -278,8 +279,13 @@
             nowHere_marker.setMap(null); // 이전 마커 없애기
          }
 
-         var lat = position.coords["latitude"];
-         var lon = position.coords["longitude"];
+         //var lat = position.coords["latitude"];
+         //var lon = position.coords["longitude"];
+         
+         var lat = 37.575916;
+         var lon = 126.976919;
+
+         //var nowHere = new naver.maps.LatLng(37.575893, 126.976975);
 
          var nowHere = new naver.maps.LatLng(lat,lon);
 
@@ -292,20 +298,24 @@
          // });
 
          nowHere_marker = new naver.maps.Marker({
+            //position: new naver.maps.LatLng(37.575893, 126.976975),
             position: new naver.maps.LatLng(lat, lon),
             map: map,
             icon: {
-               url: './img/ic_place_black_24dp_1x.png',
+               url: 'img/marker.png',
                // size: new naver.maps.Size(35, 36),
                // origin: new naver.maps.Point(0, 0),
                  // anchor: new naver.maps.Point(25, 26)
             }
          });
 
-         var wsUri = "ws://13.125.177.106:8080/gungduk/websocket/echo.do";
-         //var wsUri = "ws://localhost:8080/gungduk/websocket/echo.do";
-
-         var msg = "{ \"latitude\":" + lat + ", \"longitude\":" + lon + ", \"id\": \"sy\"}";
+         //var wsUri = "ws://13.125.138.168:8080/gungduk/websocket/echo.do";
+         var wsUri = "ws://localhost:8181/gungduk/websocket/echo.do";
+       var userID = sessionStorage.getItem("id");
+         
+         var msg = "{ \"latitude\":" + lat + ", \"longitude\":" + lon + ", \"id\": \"test\"}";
+         //var msg = "{ \"latitude\":" + 37.575893 + ", \"longitude\":" + 126.976975 + ", \"id\":" + userID + "}";
+         //var msg = "{ \"latitude\":" + lat + ", \"longitude\":" + lon + ", \"id\":" + userID + "}";
          console.log(msg);
          this.send = function (message, callback) {
              this.waitForConnection(function () {
@@ -386,17 +396,18 @@
       }
 
       function sendQst() {
-         var userID = "sy";
-        	 //sessionStorage.getItem("id");
-         console.log(userID);
+         var userID = sessionStorage.getItem("id");
+         //var userID = "sy";
+         var userID = "test";
 
          $.ajax ({
 
-            url: 'http://13.125.177.106:8080/gungduk/api/v1/finishQuest?id='+userID+'&qstName='+arr_qstname[0],
+            //url: 'http://13.125.138.168:8080/gungduk/api/v1/finishQuest?id='+userID+'&qstName='+arr_qstname[0],
+            url: 'http://localhost:8181/gungduk/api/v1/finishQuest?id='+userID+'&qstName='+arr_qstname[0],
             type: 'POST',
 
             success: function(data) {
-               location.replace('map.html');
+               $('.fade.show').modal('hide');
             }, error: function(err) {
                      console.log(err.responseText);
                   }
@@ -404,16 +415,20 @@
       }
 
       function sendquitQst() {
-         var userID = "sy";
-        	 //sessionStorage.getItem("id");
+    	  
+    	
+        var userID = sessionStorage.getItem("id");
+        //var userID = "sy";
+        var userID = "test";
 
          $.ajax ({
 
-            url: 'http://13.125.177.106:8080/gungduk/api/v1/quitQuest?id='+userID+'&qstName='+arr_qstname[0],
+            //url: 'http://13.125.138.168:8080/gungduk/api/v1/quitQuest?id='+userID+'&qstName='+arr_qstname[0],
+            url: 'http://localhost:8181/gungduk/api/v1/quitQuest?id='+userID+'&qstName='+arr_qstname[0],
             type: 'GET',
 
             success: function(data) {
-               location.replace('map.html');
+               $('#ModalPopup').modal('hide');
             }, error: function(err) {
                   console.log(err.responseText);
                }
@@ -449,4 +464,33 @@
    </script>
 
 </body>
+
+<style>
+ .modal-dialog {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+/*     height: 100%; */
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+    outline: 0;
+    overflow-y: auto;
+}
+
+/* 정답 화면 스크롤 안돼서..임시방편*/
+.modal-body{
+    height: 350px;
+    overflow-y: auto;
+}
+ 
+</style>
 </html>
