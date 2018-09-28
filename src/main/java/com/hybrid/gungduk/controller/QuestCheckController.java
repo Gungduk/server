@@ -62,7 +62,7 @@ public class QuestCheckController {
 		questDao.quitQuest(id, qstName);
 	}
 } 
-		
+	
 		
 		
 		

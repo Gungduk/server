@@ -4,7 +4,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.hybrid.gungduk.dto.SendMailDto;
-import com.hybrid.gungduk.dto.UserDto;
 
 public class EmailDao {
 
