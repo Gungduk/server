@@ -48,9 +48,18 @@
      	WHERE id = #{id} AND qstName = #{qstName}
 	</update>
 	
-	<update id="updateLevel" parameterType="String">
-        UPDATE user
-     	SET level = #{level}
-     	WHERE id = #{id}
-    </update>
+	
+	<!-- yes인 퀘스트 전부 count -->
+	<select id="countAllYes" parameterType="String" resultType="double">
+        SELECT 	count(*) as countAllYes
+        FROM 	success
+        WHERE	id = #{id} AND yesOrNo = 1
+    </select>
+	
+<!-- 	레벨 변경 -->
+	<update id = "changeLevel" parameterType="hashmap">
+		UPDATE user
+		SET level = #{level}
+		WHERE id = #{id}
+	</update>
 </mapper>

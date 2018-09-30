@@ -1,5 +1,6 @@
 package com.hybrid.gungduk.dto;
 
+//레벨 Dto
 public class LevelDto {
 
 	int level;
